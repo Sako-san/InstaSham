@@ -26,8 +26,6 @@ export const login = (user) => (
             {
                 username: user.username,
                 password: user.password,
-                email: user.email,
-                name: user.name,
             }
         }
     })
