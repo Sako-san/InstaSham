@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { login, logout, createUser} from './util/session_api_util';
 import * as seshApiUtil from './util/session_api_util';
 
 //testing
+window.login = login;
+window.logout = logout;
+window.createUser = createUser;
 
 
 document.addEventListener('DOMContentLoaded', () => {
