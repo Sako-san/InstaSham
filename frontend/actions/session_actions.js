@@ -6,24 +6,24 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const login = (user) => dispatch => {
     return seshApiUtil.login(user).then((res) => {
         return dispatch(receiveCurrentUser(res));
-    }, (res) => {
-        return dispatch(receiveErrors(res.responseJSON));
+    }, (errors) => {
+        return dispatch(receiveErrors(errors.responseJSON));
     });
 };
 
 export const logout = () => dispatch => {
     return seshApiUtil.logout().then((res) => {
         return dispatch(logoutCurrentUser(res));
-    }, (res) => {
-        return dispatch(receiveErrors(res.responseJSON));
+    }, (errors) => {
+        return dispatch(receiveErrors(errors.responseJSON));
     });
 };
 
 export const signup = (user) => dispatch => {
     return seshApiUtil.signup(user).then((res) => {
         return dispatch(receiveCurrentUser(res));
-    }, (res) => {
-        return dispatch(receiveErrors(res.responseJSON));
+    }, (errors) => {
+        return dispatch(receiveErrors(errors.responseJSON));
     });
 };
 
