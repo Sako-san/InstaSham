@@ -14,7 +14,9 @@
  *= require_self
  */
 
-
+ body {
+    font-family: sans-serif;
+ }
  title {
     font-family: 'Grand Hotel', cursive;
     font-size: 51px;
@@ -25,26 +27,34 @@
     font-size: 51px;
  }
 
+main {
 
-
-.d3 {
-    display: flex;
-    flex-direction: column;
-    width: 390px;
-    height: 756px;
-    margin: 0 auto;
-    margin-top: 100px;
- }
+}
 
  .a1 {
-     max-height: 1155px;
+     display: flex;
+     flex-direction: column;
+     height: 1155px;
      max-width: 1800px;
+     background: rgb(245,245,245)
  }
+
+.d2 {
+    background: rgb(250,250,250);
+    width: 390px;
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+ }
+
+
 
  .insta-logo {
     text-align: center;
     width: 268px;
     height: 50px;
+    padding-top: 25px;
     padding-bottom: 50px;
     margin: 0 auto;
  }
@@ -54,17 +64,21 @@
     background: rgb(240, 240, 240);
     width: 268px;
     height: 38px;
-    margin: 2px auto;
+    margin: 1px auto;
     border-radius: 5px;
     padding: 5px;
  }
 
  form {
-    
+    display: inherit;
+    flex-direction: column;
+    height: 300px;
+
  }
 
   .login-form {
     width: inherit;
+    height: 250px;
     margin: 0 auto;
  }
 
@@ -75,17 +89,30 @@
      width: 268px;
      height: 38px;
      margin: 0 auto;
-    text-align: center;
+     align-items: center;
  }
 
 .switch-form {
+    background: rgb(250,250,250);
     display: flex;
     height: 35px;
     width: 350px;
     padding: 20px;
     border: 1px solid lightgray;
-    align-content: center;
     margin: 0 auto;
     margin-top: 10px;
-    border-radius: 2px;
+    border-radius: 3px;
+}
+
+div > .account-signup {
+    display: flex;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+div > .account-signup > span {
+    display: inherit;
+    align-content: space-between;
 }

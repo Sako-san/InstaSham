@@ -40,10 +40,8 @@ class LoginSessionForm extends React.Component {
     render() {
 
         return (
-
-        <div className="d1">
             <article className="a1">
-                    <div className="d3">
+                    <div className="d2">
                         <h1 className="insta-logo">Instasham
                         </h1>
                         <form className="login-form" onSubmit={this.handleSubmit}>
@@ -69,15 +67,15 @@ class LoginSessionForm extends React.Component {
                             <br/>
                             <input className="login-submit" type="submit" value={this.props.formType} />
                         </form>
-
-                        <div className="switch-form">
-                            Don't have an account? {this.props.navLink}
-                        </div>
                     </div>
 
+                    <div className="switch-form">
+                        <div className="account-signup">
+                            <span> Don't have an account? </span>
+                            <span> {this.props.navLink} </span>
+                        </div>
+                    </div>
             </article>
-        </div>
-   
         );
     };
 
