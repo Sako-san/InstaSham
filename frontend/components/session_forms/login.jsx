@@ -1,76 +1,86 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// class LoginSessionForm extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.handleSubmit = this.handleSubmit.bind(this);
-//         this.state = {
-//             user: {
-//                 username: '',
-//                 password: '',
-//             }
-//         };
-//     }
+class LoginSessionForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.update = this.update.bind(this)
+        this.state = {
+                username: '',
+                password: '',
+        };
+    }
 
-//     update(field) {
-//         return (e) => {
-//             this.setState({ [field]: e.target.value });
-//         };
-//     };
+    update(field) {
+        return (e) => {
+            this.setState({ [field]: e.target.value });
+        };
+    };
 
-//     handleSubmit(e) {
-//         e.preventDefault();
-//         const user = merge({}, this.state);
-//         this.props.processForm(user);
-//     };
+    handleSubmit(e) {
+        e.preventDefault();
+        const user = merge({}, this.state);
+        this.props.processForm(user);
+    };
 
-//     renderErrors() {
-//         return (
-//             <ul>
-//                 {this.props.errs.map((err, idx) =>
-//                     <li key={`err-${idx}`}>
-//                         {err}
-//                     </li>
-//                 )};
-//             </ul>
-//         );
-//     };
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errs.map((err, idx) =>
+                    <li key={`err-${idx}`}>
+                        {err}
+                    </li>
+                )};
+            </ul>
+        );
+    };
 
-//     render() {
+    render() {
 
-//         return (
-//             <div>
-//                 <h1 className="insta-logo">Instasham
-//                 </h1>
-//                 <h3>{this.props.formType}</h3>
-//                 <form onSubmit={this.handleSubmit}>
-//                     <label>
-//                         <input
-//                             type="text"
-//                             value={this.state.username}
-//                             onChange={this.update('username')}
-//                             placeholder="Username"
-//                             className="login-username"
-//                         />
-//                     </label>
-//                     <label>
-//                         <input
-//                             type="password"
-//                             value={this.state.password}
-//                             onChange={this.update('password')}
-//                             placeholder="Password"
-//                             className="login-password"
-//                         />
-//                     </label>
-//                     <input type="submit" value={this.props.formType} />
-//                 </form>
+        return (
 
-//                 <div>
-//                     Don't have an account? {this.props.navLink}
-//                 </div>
-//             </div>
-//         );
-//     };
+        <div className="d1">
+            <article className="a1">
+                <div className="d2">
+                    <div className="d3">
+                        <h1 className="insta-logo">Instasham
+                        </h1>
+                        <form className="login-form" onSubmit={this.handleSubmit}>
+                            <label className="username-field">
+                                <input
+                                    type="text"
+                                    value={this.state.username}
+                                    onChange={this.update('username')}
+                                    placeholder="Username"
+                                    className="login-username"
+                                />
+                            </label>
+                            <br/>
+                            <label className="pw-field">
+                                <input
+                                    type="password"
+                                    value={this.state.password}
+                                    onChange={this.update('password')}
+                                    placeholder="Password"
+                                    className="login-password"
+                                />
+                            </label>
+                            <br/>
+                            <input className="login-submit" type="submit" value={this.props.formType} />
+                        </form>
 
-// };
+                        <div>
+                            Don't have an account? {this.props.navLink}
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+   
+        );
+    };
+
+};
+
+export default LoginSessionForm;
