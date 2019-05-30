@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import merge from 'lodash/merge';
 
 class LoginSessionForm extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class LoginSessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
+        const user = merge({}, this.state);
         this.props.processForm(user);
     };
 
