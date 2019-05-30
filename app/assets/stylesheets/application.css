@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: rgb(157, 154, 154);
+ }
+
  body {
     font-family: sans-serif;
  }
@@ -24,12 +28,10 @@
 
  h1 {
     font-family: 'Grand Hotel', cursive;
-    font-size: 51px;
+    font-size: 50px;
+    color: rgba(29,29,29, 0.9);
+    font-weight: lighter;
  }
-
-main {
-
-}
 
  .a1 {
      display: flex;
@@ -43,7 +45,7 @@ main {
     background: rgb(250,250,250);
     width: 390px;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 50px;
     border: 1px solid lightgray;
     border-radius: 3px;
  }
@@ -61,19 +63,19 @@ main {
 
   input {
     display: flex;
-    background: rgb(240, 240, 240);
+    background: rgb(245, 245, 245);
     width: 268px;
-    height: 38px;
-    margin: 1px auto;
+    height: 35px;
+    margin: 0 auto;
+    border: 1px solid lightgray;
     border-radius: 5px;
-    padding: 5px;
+    padding-left: 10px;
  }
 
  form {
     display: inherit;
     flex-direction: column;
     height: 300px;
-
  }
 
   .login-form {
@@ -84,12 +86,14 @@ main {
 
  .login-submit {
      display: inherit;
-     background: lightskyblue;
+     background: rgba(128, 201, 247, 0.6);
      color: white;
-     width: 268px;
+     width: 280px;
      height: 38px;
      margin: 0 auto;
      align-items: center;
+     font-weight: bold;
+     font-size: 14px;
  }
 
 .switch-form {
@@ -112,7 +116,3 @@ div > .account-signup {
     margin: 0 auto;
 }
 
-div > .account-signup > span {
-    display: inherit;
-    align-content: space-between;
-}
