@@ -43,7 +43,6 @@ class LoginSessionForm extends React.Component {
 
         <div className="d1">
             <article className="a1">
-                <div className="d2">
                     <div className="d3">
                         <h1 className="insta-logo">Instasham
                         </h1>
@@ -71,11 +70,11 @@ class LoginSessionForm extends React.Component {
                             <input className="login-submit" type="submit" value={this.props.formType} />
                         </form>
 
-                        <div>
+                        <div className="switch-form">
                             Don't have an account? {this.props.navLink}
                         </div>
                     </div>
-                </div>
+
             </article>
         </div>
    

@@ -8,7 +8,6 @@ import { AuthRoute } from '../util/route_util';
 const App = () => (
     <section>
         <header>
-            <h1>Welcome to InstaSham</h1>
             <FeedContainer />
         </header>
             <AuthRoute path="/login" component={LoginContainer} />

@@ -2,11 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Feed = ({ currentUser, logout }) => {
-    const sessionLinks = () => (
+    const session = () => (
         <>
-        <Link to='/login'>Login</Link>
-        <br/>
-        <Link to='/signup'>Sign Up</Link>
         </>
     );
 
@@ -19,7 +16,7 @@ const Feed = ({ currentUser, logout }) => {
         </>
     );
 
-    return currentUser ? feedPage() : sessionLinks();
+    return currentUser ? feedPage() : session();
 };
 
 export default Feed;
