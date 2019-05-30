@@ -14,7 +14,7 @@ class Api::SessionsController < ApplicationController
         @user = current_user
         if @user 
             logout
-            render json: '/api/session'
+            render json: {}
         else 
             render json: ['No User Signed in'], status: 418
         end 

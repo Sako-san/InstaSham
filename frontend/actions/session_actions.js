@@ -14,6 +14,7 @@ export const login = (user) => dispatch => {
 
 export const logout = () => dispatch => {
         seshApiUtil.logout().then( user => {
+
         dispatch(logoutCurrentUser());
     }, (errors) => {
         dispatch(receiveErrors(errors.responseJSON));
