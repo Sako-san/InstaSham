@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+
+ title {
+    font-family: 'Grand Hotel', cursive;
+    font-size: 51px;
+ }
+
+ h1 {
+    font-family: 'Grand Hotel', cursive;
+    font-size: 51px;
+ }
