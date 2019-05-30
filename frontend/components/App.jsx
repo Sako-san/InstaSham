@@ -6,15 +6,14 @@ import SignupContainer from './session_forms/signup_container';
 
 const App = () => (
     <section>
-        <main>
-            <SignupContainer />
+        <header>
+            <h1>Welcome to InstaSham</h1>
+            <FeedContainer />
             {/* <SignupContainer /> */}
             {/* <FeedContainer /> */}
-        </main>
-        {/* <Switch>
-            <Route exact path="/login" component={LoginContainer} />
-            <Route exact path="/signup" component={SignupContainer} />
-        </Switch> */}
+        </header>
+            <Route path="/login" component={LoginContainer} />
+            <Route path="/signup" component={SignupContainer} />
     </section>
 );
 

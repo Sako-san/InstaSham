@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
+import { logout } from '../../actions/session_actions';
 import Feed from './feed';
 
-// const mapStateToProps = ({ session, entities: {users}}) => ({
-//     currentUser: users[session.id]
-// });
+const mapStateToProps = ({ session, entities: {users}}) => ({
+    currentUser: users[session.id]
+});
 
-// const mapDispatchToProps = dispatch => ({
-//     logout: () => dispatch(logout())
-// });
+const mapDispatchToProps = dispatch => ({
+    logout: () => dispatch(logout())
+});
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Feed);
+export default connect(mapStateToProps, mapDispatchToProps)(Feed);

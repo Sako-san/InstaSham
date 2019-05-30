@@ -1,25 +1,26 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-// const Feed = ({ currentUser }) => {
-//     const sessionLinks = () => (
-//         <>
-//         <Link to='/login'>Login</Link>
-//         <br/>
-//         <Link to='/signup'>Sign Up</Link>
-//         </>
-//     );
+const Feed = ({ currentUser, logout }) => {
+    const sessionLinks = () => (
+        <>
+        <Link to='/login'>Login</Link>
+        <br/>
+        <Link to='/signup'>Sign Up</Link>
+        </>
+    );
 
-//     const feedPage = () => (
-//         <>
-//         <img/>
-//         <Link to='/users/:userId'>{currentUser}</Link>
-//         <span>{currentUser.name}</span>
-//         </>
-//     );
+    const feedPage = () => (
+        <>
+        <img/>
+        <span>{currentUser.name}</span>
+        <br/>
+        <button className="logout-button" onClick={logout}>Log Out</button>
+        </>
+    );
 
-//     return currentUser ? feedPage() : sessionLinks();
-// };
+    return currentUser ? feedPage() : sessionLinks();
+};
 
-// export default Feed;
+export default Feed;
 
