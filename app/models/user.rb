@@ -20,10 +20,10 @@ class User < ApplicationRecord
     attr_reader :password
     after_initialize :ensure_session_token
 
-    has_many :posts
-    has_many :likes
-    has_many :comments
-    has_many :followers
+    # has_many :posts
+    # has_many :likes
+    # has_many :comments
+    # has_many :followers
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)

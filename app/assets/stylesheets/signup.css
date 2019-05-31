@@ -1,27 +1,10 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-
-
- /* ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+ ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: rgb(157, 154, 154);
- } */
+ }
 
- /* body {
+ body {
     font-family: sans-serif;
+    background: rgb(245,245,245)
  }
  title {
     font-family: 'Grand Hotel', cursive;
@@ -35,6 +18,16 @@
     font-weight: lighter;
  }
 
+ .sign-up-blurb {
+     display: flex;
+     align-content: center;
+     width: 268px;
+     margin: 0 auto; 
+     margin-bottom: 25px; 
+     text-align: center;  
+     color: rgba(135, 134, 134, 0.8);
+ }
+
  .a1 {
      display: flex;
      flex-direction: column;
@@ -43,23 +36,35 @@
      background: rgb(245,245,245)
  }
 
-.d2 {
+.signup-formbox {
     background: rgb(250,250,250);
     width: 390px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 15px;
     border: 1px solid lightgray;
-    border-radius: 3px;
+    border-radius: 2px;
  }
 
+ .demologin {
+    display: inherit;
+    background: rgba(49, 126, 236, 0.8);
+    color: white;
+    width: 280px;
+    height: 38px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 5px;
+ }
 
-
- .insta-logo {
+ .insta-logo-signup {
     text-align: center;
     width: 268px;
     height: 50px;
     padding-top: 25px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     margin: 0 auto;
  }
 
@@ -70,7 +75,7 @@
     height: 35px;
     margin: 0 auto;
     border: 1px solid lightgray;
-    border-radius: 5px;
+    border-radius: 3px;
     padding-left: 10px;
  }
 
@@ -80,15 +85,10 @@
     height: 300px;
  }
 
-  .login-form {
-    width: inherit;
-    height: 250px;
-    margin: 0 auto;
- }
 
- .login-submit {
+ .submit-signup {
      display: inherit;
-     background: rgba(128, 201, 247, 0.6);
+     background: rgba(49, 126, 236, 0.8);
      color: white;
      width: 280px;
      height: 38px;
@@ -107,14 +107,14 @@
     border: 1px solid lightgray;
     margin: 0 auto;
     margin-top: 10px;
-    border-radius: 3px;
+    border-radius: 2px;
+    align-content: center;
 }
 
-div > .account-signup {
+div > .account-login {
     display: flex;
     width: 250px;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
 }
- */
