@@ -13,7 +13,7 @@ const Feed = ({ currentUser, logout }) => {
         <img/>
         <span>Welcome to Instasham, {currentUser.name}</span>
         <br/>
-        <button className="logout-button"  onClick={logout}>Log Out</button>
+            <Link to='/login' className="logout-button" onClick={logout}>Log Out</Link>
         </>
     );
 
