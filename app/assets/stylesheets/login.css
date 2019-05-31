@@ -1,27 +1,10 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-
-
- /* ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+ ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: rgb(157, 154, 154);
- } */
+ }
 
- /* body {
+ body {
     font-family: sans-serif;
+    background: rgb(245,245,245)
  }
  title {
     font-family: 'Grand Hotel', cursive;
@@ -82,7 +65,7 @@
 
   .login-form {
     width: inherit;
-    height: 250px;
+    height: 175px;
     margin: 0 auto;
  }
 
@@ -107,7 +90,7 @@
     border: 1px solid lightgray;
     margin: 0 auto;
     margin-top: 10px;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 div > .account-signup {
@@ -117,4 +100,3 @@ div > .account-signup {
     justify-content: center;
     margin: 0 auto;
 }
- */

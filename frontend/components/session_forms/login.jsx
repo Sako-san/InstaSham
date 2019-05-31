@@ -67,7 +67,7 @@ class LoginSessionForm extends React.Component {
                             <br/>
                             <input className="login-submit" type="submit" value={this.props.formType} />
                         </form>
-                    </div>
+                </div>
 
                     <div className="switch-form">
                         <div className="account-signup">

@@ -29,11 +29,11 @@ class SignupSessionForm extends React.Component {
     renderErrors() {
         return (
             <ul>
-                {this.props.errs.map((err, idx) =>
+                {this.props.errs.map((err, idx) => (
                     <li key={`err-${idx}`}>
                         {err}
                     </li>
-                )};
+                ))};
             </ul>
         );
     };
@@ -41,11 +41,13 @@ class SignupSessionForm extends React.Component {
     render() {
         return (
             <div>
-                <h1 className="insta-logo">Instasham
+                <section className="signup-formbox">
+                <h1 className="insta-logo-signup">Instasham
                 </h1>
-                <h4 className="sign-up-blurb">Sign up to see photos from your friends.
+                <h4 className="sign-up-blurb">Sign up to see photos and videos from your friends.
                 </h4>
-                {/* <h4>{this.props.formType}</h4> */}
+                <input className="demologin" type="submit" value="Log in with Demo"/>
+                    {/* <span className='or'> OR </span> */}
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         <input
@@ -87,11 +89,16 @@ class SignupSessionForm extends React.Component {
                         />
                     </label>
                     <br/>
-                    <input type="submit" value={this.props.formType} />
+                    <input className="submit-signup" type="submit" value={this.props.formType} />
+                        {/* {this.renderErrors()} */}
                 </form>
+                </section>
 
-                <div>
-                    Have an account? {this.props.navLink}
+                <div className="switch-form">
+                    <div className="account-login">
+                        <span> Have an account? </span>
+                        <span> {this.props.navLink} </span>
+                    </div>
                 </div>
             </div>
         );
