@@ -1,16 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import merge from 'lodash/merge';
 
 class LoginSessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.update = this.update.bind(this)
+        this.update = this.update.bind(this);
+        this.demoUser = this.demoUser.bind(this);
+
         this.state = {
                 username: '',
                 password: '',
         };
+    }
+
+    demoUser(e) {
+        e.preventDefault();
+        this.props.processForm({
+            user: {
+                username: 'demo',
+                password: '123456'
+            }
+        });
+
     }
 
     update(field) {
@@ -21,7 +34,6 @@ class LoginSessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = merge({}, this.state);
         this.props.processForm(user);
     };
 
@@ -67,10 +79,9 @@ class LoginSessionForm extends React.Component {
                             <br/>
                             <input className="login-submit" type="submit" value={this.props.formType} />
                         </form>
-
-                        <div className='demo-user'>
-                            <Link to='/'>Log in with Demo</Link>
-                        </div>
+                    <div className='demo-user'>
+                        <button onClick={this.DemoUser}>Log in with Demo</button>
+                    </div>
                 </div>
 
                     <div className="switch-form">
@@ -85,4 +96,4 @@ class LoginSessionForm extends React.Component {
 
 };
 
-export default LoginSessionForm;
+export default withRouter(LoginSessionForm);
