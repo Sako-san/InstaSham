@@ -7,11 +7,11 @@ import { AuthRoute } from '../util/route_util';
 
 const App = () => (
     <section>
-        <header>
-            <FeedContainer />
-        </header>
-            <AuthRoute path="/login" component={LoginContainer} />
-            <AuthRoute path="/signup" component={SignupContainer} />
+        <Switch>
+            <Redirect exact from="/" to="/signup" />
+            <AuthRoute exact path="/signup" component={SignupContainer} />
+            <AuthRoute exact path="/login" component={LoginContainer} />
+        </Switch>
     </section>
 );
 
