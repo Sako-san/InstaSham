@@ -81,6 +81,16 @@
      font-size: 14px;
  }
 
+ .demo-user {
+    display: flex;
+    justify-content: center;
+    width: 350px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+ }
+
 .switch-form {
     background: rgb(250,250,250);
     display: flex;

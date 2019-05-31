@@ -39,6 +39,9 @@ class SignupSessionForm extends React.Component {
     };
 
     render() {
+
+        
+
         return (
             <div>
                 <section className="signup-formbox">
@@ -90,7 +93,7 @@ class SignupSessionForm extends React.Component {
                     </label>
                     <br/>
                     <input className="submit-signup" type="submit" value={this.props.formType} />
-                        {/* {this.renderErrors()} */}
+                    {/* {errors} */}
                 </form>
                 </section>
 

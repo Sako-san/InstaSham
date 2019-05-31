@@ -67,6 +67,10 @@ class LoginSessionForm extends React.Component {
                             <br/>
                             <input className="login-submit" type="submit" value={this.props.formType} />
                         </form>
+
+                        <div className='demo-user'>
+                            <Link to='/'>Log in with Demo</Link>
+                        </div>
                 </div>
 
                     <div className="switch-form">
