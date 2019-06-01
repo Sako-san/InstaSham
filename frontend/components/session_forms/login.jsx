@@ -38,6 +38,8 @@ class LoginSessionForm extends React.Component {
     };
 
     render() {
+        const { username, password } = this.state;
+        const isEnabled = username.length > 0 && password.length > 0;
 
         return (
             <article className="a1">
@@ -65,7 +67,7 @@ class LoginSessionForm extends React.Component {
                                 />
                             </label>
                             <br/>
-                            <input className="login-submit" type="submit" value={this.props.formType} />
+                            <button disabled={!isEnabled} className="login-submit" type="submit" >{this.props.formType}</button>
                         </form>
                         <div className='errors'> {this.renderErrors()} </div>
 

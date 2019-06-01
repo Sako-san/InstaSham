@@ -72,6 +72,19 @@
 
  .login-submit {
      display: inherit;
+     background: rgba(49, 126, 236, 0.8);
+     color: white;
+     width: 280px;
+     height: 38px;
+     margin: 0 auto;
+     align-items: center;
+     font-weight: bold;
+     font-size: 14px;
+     border-radius: 2px;
+ }
+
+  .login-submit:disabled {
+     display: inherit;
      background: rgba(128, 201, 247, 0.6);
      color: white;
      width: 280px;
@@ -80,6 +93,7 @@
      align-items: center;
      font-weight: bold;
      font-size: 14px;
+     border-radius: 2px;
  }
 
   .errors {
