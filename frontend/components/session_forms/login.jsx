@@ -25,16 +25,22 @@ class LoginSessionForm extends React.Component {
         this.props.processForm(user);
     };
 
+    // componentWillUnmount() {
+    //     this.props.clearErrors();
+    // };
+
     renderErrors() {
-        return (
-            <ul>
-                {this.props.errs.map((err, idx) =>
-                    <li key={`err-${idx}`}>
-                        {err}
-                    </li>
-                )};
-            </ul>
-        );
+        if (this.props.errs === 1) {
+            return (
+                <ul>
+                    {this.props.errs.map((err, idx) =>
+                        <li key={`err-${idx}`}>
+                            {err}
+                        </li>
+                    )}
+                </ul>
+                );
+        };
     };
 
     render() {
@@ -67,6 +73,7 @@ class LoginSessionForm extends React.Component {
                             <br/>
                             <input className="login-submit" type="submit" value={this.props.formType} />
                         </form>
+                        <div className='errors'> {this.renderErrors()} </div>
 
                         <div className='demo-user'>
                             <Link to='/'>Log in with Demo</Link>

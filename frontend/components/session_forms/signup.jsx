@@ -26,22 +26,25 @@ class SignupSessionForm extends React.Component {
         this.props.processForm(user);
     };
 
+    // componentWillUnmount() {
+    //     this.props.clearErrors();
+    // };
+
     renderErrors() {
-        return (
-            <ul>
-                {this.props.errs.map((err, idx) => (
-                    <li key={`err-${idx}`}>
-                        {err}
-                    </li>
-                ))};
-            </ul>
-        );
+        if(this.props.errs){
+            return (
+                <ul>
+                    {this.props.errs.map((err, idx) => (
+                        <li key={`err-${idx}`}>
+                            {err}
+                        </li>
+                    ))}
+                </ul>
+            );
+        }
     };
 
     render() {
-
-        
-
         return (
             <div>
                 <section className="signup-formbox">
@@ -93,7 +96,7 @@ class SignupSessionForm extends React.Component {
                     </label>
                     <br/>
                     <input className="submit-signup" type="submit" value={this.props.formType} />
-                    {/* {errors} */}
+                        <div className="errors"> {this.renderErrors()} </div> 
                 </form>
                 </section>
 

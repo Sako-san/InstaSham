@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { createUser } from '../../actions/session_actions';
+import { createUser, clearErrors } from '../../actions/session_actions';
 import SignupSessionForm from './signup';
 
 const mapStateToProps = (state, ownProps) => {
-    const errs = state.errors.session.errors;
+    const errs = state.errors.session;
     const formType = 'Sign Up';
     const navLink = <Link to='/login'>Login</Link>;
 
@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    processForm: (user) => dispatch(createUser(user))
+    processForm: (user) => dispatch(createUser(user)),
+    clearErrors: () => dispatch(clearErrors()),
 });
 
 

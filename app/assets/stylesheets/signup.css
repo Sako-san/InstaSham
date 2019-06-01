@@ -39,6 +39,7 @@
 .signup-formbox {
     background: rgb(250,250,250);
     width: 390px;
+    height: 600px;
     margin: 0 auto;
     margin-top: 15px;
     border: 1px solid lightgray;
@@ -84,6 +85,17 @@
     flex-direction: column;
     height: 300px;
  }
+
+ .errors {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  text-decoration: none;
+  list-style-type: none;
+  color: #ed4956;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 10px 40px;
+  text-align: center;
+}
 
 
  .submit-signup {
