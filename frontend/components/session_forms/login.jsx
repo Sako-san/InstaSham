@@ -6,7 +6,8 @@ class LoginSessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.update = this.update.bind(this)
+        this.update = this.update.bind(this);
+        this.demoUser = this.demoUser.bind(this);
         this.state = {
                 username: '',
                 password: '',
@@ -17,6 +18,12 @@ class LoginSessionForm extends React.Component {
         return (e) => {
             this.setState({ [field]: e.target.value });
         };
+    };
+
+    demoUser(e) {
+        e.preventDefault();
+        let user = { username: 'demo', password: '123456'}
+        this.props.processForm( user );
     };
 
     handleSubmit(e) {
@@ -72,7 +79,7 @@ class LoginSessionForm extends React.Component {
                         <div className='errors'> {this.renderErrors()} </div>
 
                         <div className='demo-user'>
-                            <Link to='/'>Log in with Demo</Link>
+                        <button onClick={this.demoUser}>Log in with Demo</button>
                         </div>
                 </div>
 

@@ -91,7 +91,7 @@ class SignupSessionForm extends React.Component {
                         />
                     </label>
                     <br/>
-                    <button className="submit-signup" type="submit" value={this.props.formType}></button>
+                    <button className="submit-signup" type="submit"> {this.props.formType} </button>
                         <div className="errors"> {this.renderErrors()} </div> 
                 </form>
                 </section>
