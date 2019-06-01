@@ -107,14 +107,19 @@
   text-align: center;
 }
 
- .demo-user {
-    display: flex;
+ .demo-login {
+    background: rgba(49, 126, 236, 0.8);
+    display: inherit;
     justify-content: center;
-    width: 350px;
+    color: white;
+    width: 280px;
+    height: 38px;
     text-align: center;
     margin: 0 auto;
-    margin-top: 10px;
     margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 2px;
  }
 
 .switch-form {

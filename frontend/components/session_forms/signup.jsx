@@ -12,7 +12,10 @@ class SignupSessionForm extends React.Component {
                 username: '',
                 password: '',
         };
-    }
+    };
+
+
+
 
     update(field) {
         return (e) => {
@@ -38,8 +41,14 @@ class SignupSessionForm extends React.Component {
         };
     };
 
-    render() {
-    
+    render() {  
+
+    const { 
+        email, 
+        name,
+        password,
+        username
+    } = this.state;
     
     return (
             <div>
@@ -48,11 +57,10 @@ class SignupSessionForm extends React.Component {
                 </h1>
                 <h4 className="sign-up-blurb">Sign up to see photos and videos from your friends.
                 </h4>
-                <input className="demologin" type="submit" value="Log in with Demo"/>
-                    {/* <span className='or'> OR </span> */}
-                <form onSubmit={this.handleSubmit}>
+                <form className='form' onSubmit={this.handleSubmit}>
                     <label>
                         <input
+                        required
                             type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
@@ -63,6 +71,7 @@ class SignupSessionForm extends React.Component {
                     <br/>
                     <label>
                         <input
+                        required
                             type="text"
                             value={this.state.name}
                             onChange={this.update('name')}
@@ -73,6 +82,7 @@ class SignupSessionForm extends React.Component {
                     <br/>
                     <label>
                         <input
+                        required
                             type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
@@ -83,6 +93,7 @@ class SignupSessionForm extends React.Component {
                     <br/>
                     <label >
                         <input
+                        required
                             type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
@@ -107,5 +118,7 @@ class SignupSessionForm extends React.Component {
     };
 
 };
+
+
 
 export default SignupSessionForm;

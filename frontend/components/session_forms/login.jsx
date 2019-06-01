@@ -79,7 +79,7 @@ class LoginSessionForm extends React.Component {
                         <div className='errors'> {this.renderErrors()} </div>
 
                         <div className='demo-user'>
-                        <button onClick={this.demoUser}>Log in with Demo</button>
+                        <button className='demo-login' onClick={this.demoUser}>Log in with Demo</button>
                         </div>
                 </div>
 
