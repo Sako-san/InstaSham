@@ -14,7 +14,7 @@
 #
 
 class User < ApplicationRecord
-    validates :username, :name, :email, :session_token, :password_digest, presence: true
+    validates :email, :name, :username, :session_token, :password_digest, presence: {message: 'Field(s) can"t be blank'}
     validates :password, length: {minimum: 6, allow_nil: true}
 
     attr_reader :password

@@ -25,21 +25,15 @@ class LoginSessionForm extends React.Component {
         this.props.processForm(user);
     };
 
-    // componentWillUnmount() {
-    //     this.props.clearErrors();
-    // };
+    componentWillUnmount() {
+        this.props.clearErrors();
+    };
+
+
 
     renderErrors() {
-        if (this.props.errs === 1) {
-            return (
-                <ul>
-                    {this.props.errs.map((err, idx) =>
-                        <li key={`err-${idx}`}>
-                            {err}
-                        </li>
-                    )}
-                </ul>
-                );
+        if (this.props.errs.length >= 1) {
+          return ('Invalid username or password')
         };
     };
 

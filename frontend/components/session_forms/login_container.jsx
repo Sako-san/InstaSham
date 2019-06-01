@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import LoginSessionForm from './login';
 
 const mapStateToProps = (state, ownProps) => {
-    const errs = state.errors;
+    const errs = state.errors.session;
     const formType = 'Log In';
     const navLink = <Link to='/signup'>Sign Up</Link>;
 
