@@ -7,7 +7,7 @@ const mapStateToProps = ({ session, entities: {users}}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout().then( () => this.props.history.push('/login')))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);

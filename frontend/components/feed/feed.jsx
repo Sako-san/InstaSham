@@ -3,21 +3,16 @@ import {Link} from 'react-router-dom';
 
 
 const Feed = ({ currentUser, logout }) => {
-    const session = () => (
-        <>
-        </>
-    );
 
     const feedPage = () => (
         <>
         <img/>
         <span>Welcome to Instasham, {currentUser.name}</span>
         <br/>
-            <Link to='/login' className="logout-button" onClick={logout}>Log Out</Link>
+        <button className="logout-button" onClick={logout}>Logout</button>
         </>
     );
 
-    return currentUser ? feedPage() : session();
 };
 
 export default Feed;
