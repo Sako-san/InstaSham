@@ -1,7 +1,7 @@
-class API::PostsController < ApplicationController
+class Api::PostsController < ApplicationController
 
     def index
-        @posts = Posts.all
+        @posts = Post.all
         render :index
     end
 
@@ -28,7 +28,7 @@ class API::PostsController < ApplicationController
         if @post.update(post_params)
             render :show
         else
-            json: @post.errors.full_messages, status: 422
+            render json: @post.errors.full_messages, status: 422
         end
     end
 
@@ -40,5 +40,7 @@ class API::PostsController < ApplicationController
 
     private
 
-    params.require(:post).permit(:body, :photo)
+    def post_params
+        params.require(:post).permit(:body)
+    end
 end
