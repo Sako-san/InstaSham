@@ -20,7 +20,12 @@ class User < ApplicationRecord
     attr_reader :password
     after_initialize :ensure_session_token
 
-    has_many :posts
+    has_many :posts,
+    foreign_key: :author_id,
+    class_name: :Post
+    
+    # has_many :likes
+    # has_many :comments
     # has_many :followers
 
     def self.find_by_credentials(username, password)
