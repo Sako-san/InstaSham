@@ -51,8 +51,11 @@ class SignupSessionForm extends React.Component {
     } = this.state;
     
     return (
-            <div>
-                <section className="signup-formbox">
+            <div className='container'>
+            
+            <img className='imgurl' src={window.splashImage}/>
+
+            <article className="signup-formbox">
                 <h1 className="insta-logo-signup">Instasham
                 </h1>
                 <h4 className="sign-up-blurb">Sign up to see photos and videos from your friends.
@@ -105,7 +108,6 @@ class SignupSessionForm extends React.Component {
                     <button className="submit-signup" type="submit"> {this.props.formType} </button>
                         <div className="errors"> {this.renderErrors()} </div> 
                 </form>
-                </section>
 
                 <div className="switch-form">
                     <div className="account-login">
@@ -113,6 +115,10 @@ class SignupSessionForm extends React.Component {
                         <span> {this.props.navLink} </span>
                     </div>
                 </div>
+                
+                </article>
+
+
             </div>
         );
     };
