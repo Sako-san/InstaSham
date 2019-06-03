@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import merge from 'lodash';
 import PostIndexItem from './post_index_item';
+import CreatePostContainer from './create_post_form_container';
 
 
 class PostIndex extends React.Component {
@@ -23,6 +24,7 @@ class PostIndex extends React.Component {
                 <ul>
                     {posts}
                 </ul>
+                <CreatePostContainer/>
             </div>
         );
     };
