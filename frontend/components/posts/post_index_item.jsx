@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const FeedIndexItem = ({ post, deletePost }) => {
+const PostIndexItem = ({ post, deletePost }) => {
     return (
         <li>
             {post.author_id} 
@@ -17,4 +17,4 @@ const FeedIndexItem = ({ post, deletePost }) => {
         </li>);
 };
 
-export default FeedIndexItem;
+export default PostIndexItem;

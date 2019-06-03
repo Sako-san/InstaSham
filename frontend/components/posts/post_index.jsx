@@ -1,17 +1,17 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import merge from 'lodash';
-import FeedIndexItem from './feed_index_item';
+import PostIndexItem from './post_index_item';
 
 
-class FeedIndex extends React.Component {
+class PostIndex extends React.Component {
     componentDidMount() {
         this.props.fetchPosts();
     }
 
     render() {
         const posts = this.props.posts.map( post => {
-            return ( <FeedIndexItem
+            return ( <PostIndexItem
             key= {post.id}
             post= {post}
             deletePost={this.props.deletePost} />
@@ -28,5 +28,5 @@ class FeedIndex extends React.Component {
     };
 };
 
-export default FeedIndex;
+export default PostIndex;
 

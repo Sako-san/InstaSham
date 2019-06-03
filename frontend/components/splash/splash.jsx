@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import SignupContainer from '../session_forms/signup_container';
-import FeedIndexContainer from '../feed/feed_container';
+import PostIndexContainer from '../posts/post_index_container';
 
 const splash = ({ currentUser, logout }) => {
 
@@ -12,7 +12,7 @@ const splash = ({ currentUser, logout }) => {
             <br />
             <button className="logout-button" onClick={logout}>Logout</button>
             <div> 
-                <FeedIndexContainer/>
+                <PostIndexContainer/>
             </div>
         </>
     );
