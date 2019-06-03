@@ -1,1 +1,2 @@
-json.extract! post, :id, :location, :author_id, :body, :created_at
+json.extract! post, :id, :location, :body, :created_at
+json.username User.all.find(post.author_id).username
