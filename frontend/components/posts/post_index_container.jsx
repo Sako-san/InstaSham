@@ -11,7 +11,7 @@ const mapStateToProps = ({ session, entities: {users, posts}}) => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchPosts: () => dispatch(fetchPosts()),
-    deletePost: (post) => dispatch(deletePost(post.id)),
+    deletePost: (id) => dispatch(deletePost(id)),
 
     logout: () => dispatch(logout().then( () => this.props.history.push('/login')))
 });

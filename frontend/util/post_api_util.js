@@ -5,10 +5,10 @@ export const fetchPosts = () => (
     })
 );
 
-export const fetchPost = (post) => (
+export const fetchPost = (id) => (
     $.ajax({
         method: 'GET',
-        url: `api/posts/${post.id}`,
+        url: `api/posts/${id}`,
     })
 );
 
@@ -28,9 +28,9 @@ export const updatePost = (post) => (
     })
 );
 
-export const deletePost = (postId) => (
+export const deletePost = (id) => (
     $.ajax({
         method: 'DELETE',
-        url: `api/posts/${postId}`,
+        url: `api/posts/${id}`,
     })
 );

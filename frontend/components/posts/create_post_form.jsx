@@ -28,7 +28,7 @@ class CreatePostForm extends React.Component {
                         <br/>
                     <input
                             type="text"
-                            value={this.state.title}
+                            value={this.state.location}
                             onChange={this.update('location')} />
                     </label>
                         <br/>
