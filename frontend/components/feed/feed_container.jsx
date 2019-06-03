@@ -5,7 +5,7 @@ import FeedIndex from './feed_index';
 
 const mapStateToProps = ({ session, entities: {users, posts}}) => ({
     currentUser: users[session.id],
-    posts: posts.map(id => posts[id]),
+    posts: Object.keys(posts).map(id => posts[id]),
 });
 
 const mapDispatchToProps = dispatch => ({

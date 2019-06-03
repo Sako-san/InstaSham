@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import merge from 'lodash'
+import merge from 'lodash';
+import FeedIndexItem from './feed_index_item';
 
 
 class FeedIndex extends React.Component {

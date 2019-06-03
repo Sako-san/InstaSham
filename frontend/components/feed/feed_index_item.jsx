@@ -5,10 +5,14 @@ import { Link } from 'react-router-dom';
 const FeedIndexItem = ({ post, deletePost }) => {
     return (
         <li>
-            {post.author_id}
+            {post.author_id} 
+            <br/>
             {post.location}
+            <br/>
             {post.body}
-            {post.create_at}
+            <br/>
+            {post.created_at}
+            <br/>
             <button onClick={() => deletePost(post.id)}>Delete</button>
         </li>);
 };

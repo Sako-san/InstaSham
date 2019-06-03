@@ -2,7 +2,6 @@ export const fetchPosts = () => (
     $.ajax({
         method: 'GET',
         url: `api/posts`,
-        data: { post }
     })
 );
 
@@ -10,7 +9,6 @@ export const fetchPost = (post) => (
     $.ajax({
         method: 'GET',
         url: `api/posts/${post.id}`,
-        data: { post }
     })
 );
 
