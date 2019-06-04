@@ -20,12 +20,12 @@ class PostIndex extends React.Component {
         });
 
         return (
-            <div>
-                <ul>
-                    {posts}
-                </ul>
-                <CreatePostContainer/>
-            </div>
+            <>
+            <ul className='post-index-ul' >
+                {posts}
+            </ul>
+            <CreatePostContainer/>
+            </>
         );
     };
 };

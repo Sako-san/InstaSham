@@ -1,5 +1,4 @@
 class Post < ApplicationRecord
-    
 
 
     belongs_to :author, 
@@ -10,5 +9,5 @@ class Post < ApplicationRecord
     # has_many :comments
 
     # Active Storage Association
-    # has_one_attached :photo
+    has_one_attached :photo
 end
