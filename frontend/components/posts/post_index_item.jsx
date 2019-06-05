@@ -3,18 +3,28 @@ import { Link } from 'react-router-dom';
 
 const PostIndexItem = ({ post, deletePost }) => { 
     return (
-        <li>
-            {post.username}
+        <li className="post-card">
+            <span className="card-prop">
+                {post.username}
+            </span>
             <br/>
-            {post.location}
+            <span className="card-prop">
+                {post.location}
+            </span>
             <br/>
-            <img src={post.photoUrl}/>
+            <div className= "card-img">
+                <img height="500px" width="400px" src={post.photoUrl} />
+            </div>
             <br/>
-            {post.body}
+            <span className="card-prop">
+                {post.body}
+            </span>
             <br/>
-            {post.created_at}
+            <span className="card-prop">
+                {post.created_at}
+            </span>
             <br/>
-            <button onClick={() => deletePost(post.id)}>Delete</button>
+            <button className="card-prop" onClick={() => deletePost(post.id)}>Delete</button>
         </li>);
 };
 

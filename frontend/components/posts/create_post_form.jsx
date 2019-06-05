@@ -36,15 +36,15 @@ class CreatePostForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        const { createPost } = this.props
+        const { location, body, photoFile } = this.state;
         const formData = new FormData();
-            formData.append('post[location]', this.state.location);
-            formData.append('post[body]', this.state.body);
-            if(this.state.photofile){
-                formData.append('post[photo]', this.state.PhotoFile);
-            };
+        formData.append('post[location]', this.state.location);
+        formData.append('post[body]', this.state.body);
+        formData.append('post[photo]', this.state.photoFile);
 
-        this.props.action(formData);
-    }
+        this.props.createPost(formData);
+    };
 
     render() {
 
@@ -59,7 +59,7 @@ class CreatePostForm extends React.Component {
         return (
             <div>
                 <h3>{this.props.formType}</h3>
-                <form onSubmit={this.handleSubmit}> 
+                <form onSubmit={this.handleSubmit.bind(this)}> 
                     <label>Location
                         <br/>
                     <input
@@ -71,7 +71,7 @@ class CreatePostForm extends React.Component {
                     <label>Image
                         <input 
                             type="file"
-                            onChange={this.handleFile.bind(this)}
+                            onChange={this.handleFile}
                             />
                     </label>
                         <br/>

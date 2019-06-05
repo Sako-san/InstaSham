@@ -1,7 +1,7 @@
 class Api::PostsController < ApplicationController
 
     def index
-        @posts = Post.all
+        @posts = Post.all.with_attached_photo
         render :index
     end
 
@@ -12,7 +12,6 @@ class Api::PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-        debugger
         @post.author_id = current_user.id
         if @post.save
             render :show

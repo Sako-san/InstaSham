@@ -7,8 +7,7 @@ const splash = ({ currentUser, logout }) => {
 
     const feedPage = () => (
         <>
-            <nav className='nav'>Instasham</nav>
-            <div>
+            <div className='main-div'>
                 <PostIndexContainer/>
             </div>
             <div>

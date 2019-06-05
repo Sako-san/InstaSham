@@ -1,5 +1,3 @@
-json.extract! post, :id, :location, :body, :photo, :created_at
+json.extract! post, :id, :location, :body, :created_at
 json.username User.all.find(post.author_id).username
-if json.PhotoUrl 
-    json.PhotoUrl url_for(post.photo) 
-end
+json.photoUrl url_for(post.photo)

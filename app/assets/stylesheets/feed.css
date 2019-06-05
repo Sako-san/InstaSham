@@ -1,5 +1,48 @@
+main {
+    height: 100%;
+    width: 100%;
+}
+
+section {
+   margin: 0 auto;
+}
+
+.main-div {
+    margin-top: 28%;
+    justify-content: center;
+}
+
 .nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white;
     font-family: 'Grand Hotel', cursive;
-    font-size: 35px;
+    justify-content: center;
+    font-size: 50px;
+    color: rgba(29,29,29, 0.9);
+    height: 75px;
+    font-weight: lighter;
+    border-bottom: 1px solid lightgray;
+}
+
+.post-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    height: 700px;
+    width: auto;
+    border: 1px solid lightgray;
+
+}
+
+.card-prop {
+ justify-content: center;
+}
+
+.card-img {
+    margin: 0 auto;
 }
 
