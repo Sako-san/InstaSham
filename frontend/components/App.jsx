@@ -10,7 +10,7 @@ const App = () => (
     <section>
         <nav className="nav"> 
             <div className='insta-cam' >
-                <i class="fab fa-instagram"></i>
+                <i className="fab fa-instagram"></i>
             </div>
             <span> Instasham</span>  
         </nav>

@@ -22,7 +22,7 @@ class CreatePostForm extends React.Component {
     };
 
     handleFile(e) {
-        const file = e.currentTarget.files[0];
+        const file = e.target.files[0];
         const reader = new FileReader();
 
         reader.onloadend = () => {
@@ -59,7 +59,7 @@ class CreatePostForm extends React.Component {
         return (
             <div >
                 <h3 className='create-post-head' >{this.props.formType}</h3>
-                <form onSubmit={this.handleSubmit.bind(this)}>
+                <form className='form-container' onSubmit={this.handleSubmit.bind(this)}>
                         <br/>
                     <input
                             type="text"
@@ -67,10 +67,10 @@ class CreatePostForm extends React.Component {
                             onChange={this.update('location')}
                             placeholder='Add Location' />
                         <br/>
-                        <input 
-                            type="file"
-                            onChange={this.handleFile}
-                            />
+                        <label className='submit' onChange={this.handleFile}>
+                            <span>Upload Photo</span> 
+                            <input className='upload-button' type="file"/>
+                        </label> 
                         <br/>
                         <textarea
                             value={this.state.body}
@@ -79,7 +79,7 @@ class CreatePostForm extends React.Component {
                         <br/>
                     <input className='submit' type="submit" value={this.props.formType} />
 
-                    {thumbnail}
+                    <div className='thumbnail'> {thumbnail} </div> 
                 </form>
             </div>
         );

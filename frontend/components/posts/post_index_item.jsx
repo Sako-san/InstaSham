@@ -20,14 +20,33 @@ const PostIndexItem = ({ post, deletePost }) => {
                 <img height="500px" width="400px" src={post.photoUrl} />
             </div>
             <div className="card-prop-icons">
-                <i class="far fa-heart"></i>
-                <i class="far fa-comment"></i>
-                <i class="fas fa-arrow-up"></i>
+                <div className='left-box'>
+                    <div className='icon1'>
+                    <i className="far fa-heart"></i>
+                    </div>
+                    <div className='icon2'>
+                    <i className="far fa-comment"></i>
+                    </div>
+                    <div className='icon3'>
+                    <i className="fas fa-arrow-up"></i>
+                    </div>
+                </div>
+                <div className='right-box'>
+                    <div className='icon4'>
+                        <i className="far fa-bookmark "></i>
+                    </div>
+                </div>
             </div>
+
             <br/>
-            <span className="card-prop">
-                {post.body}
-            </span>
+            <div className='user-body'>
+                <span className='username-body'>
+                    {post.username}
+                </span>
+                <span className="card-prop">
+                    {post.body}
+                </span>
+            </div>
             <br/>
             <span className="card-prop">
                 {post.created_at}
