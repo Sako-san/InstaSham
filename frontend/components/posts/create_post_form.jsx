@@ -57,32 +57,27 @@ class CreatePostForm extends React.Component {
         console.log(this.state);
 
         return (
-            <div>
-                <h3>{this.props.formType}</h3>
-                <form onSubmit={this.handleSubmit.bind(this)}> 
-                    <label>Location
+            <div >
+                <h3 className='create-post-head' >{this.props.formType}</h3>
+                <form onSubmit={this.handleSubmit.bind(this)}>
                         <br/>
                     <input
                             type="text"
                             value={this.state.location}
-                            onChange={this.update('location')} />
-                    </label>
+                            onChange={this.update('location')}
+                            placeholder='Add Location' />
                         <br/>
-                    <label>Image
                         <input 
                             type="file"
                             onChange={this.handleFile}
                             />
-                    </label>
-                        <br/>
-                    <label>Body
                         <br/>
                         <textarea
                             value={this.state.body}
-                            onChange={this.update('body')} />
-                    </label>
+                            onChange={this.update('body')} 
+                            placeholder='Say something cool...'/>
                         <br/>
-                    <input type="submit" value={this.props.formType} />
+                    <input className='submit' type="submit" value={this.props.formType} />
 
                     {thumbnail}
                 </form>

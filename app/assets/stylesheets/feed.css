@@ -3,43 +3,159 @@ main {
     width: 100%;
 }
 
-section {
-   margin: 0 auto;
-}
-
 .main-div {
-    margin-top: 28%;
+    margin-top: 80px;
     justify-content: center;
 }
 
-.nav {
+.profile-div {
+    display: flex;
+    position: relative;
+    margin-top: 150px;
+    flex-direction: column;
+    width: 300px;
+    height: 75px;
+    margin-left: 40px;
+}
+
+.user-info {
+    display: flex;
+    margin-bottom: 10px;
     position: fixed;
+}
+
+.user-info-card {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.location {
+    margin-top: 3px;
+    font-size: 12px;
+}
+
+.names {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 65px;
+    position: fixed;
+}
+
+.names-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.prof-pic {
+    border-radius: 25px;
+}
+
+.logout-button {
+    position: fixed;
+    margin-top: 75px;
+}
+
+.nav {
+    display: flex;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     background: white;
     font-family: 'Grand Hotel', cursive;
-    justify-content: center;
-    font-size: 50px;
+    font-size: 30px;
     color: rgba(29,29,29, 0.9);
-    height: 75px;
-    font-weight: lighter;
+    height: 76px;
+    font-weight: 1;
     border-bottom: 1px solid lightgray;
+    align-items: center;
 }
+
+.nav > span {
+   margin: 15px;
+   padding-left: 15px;
+   border-left: 1px solid  rgba(29,29,29, 0.9);
+   
+}
+
+.insta-cam {
+    margin-left: 50px;
+}
+
+.create-post-head {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.post-form {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    background: white;
+    height: 300px;
+    width: 300px;
+    margin-top: 150px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    position: fixed;
+}
+
+ .submit {
+     display: inherit;
+     background: rgba(49, 126, 236, 0.8);
+     color: white;
+     width: 263px;
+     height: 38px;
+     margin: 0 auto;
+     margin-top: 30px;
+     justify-content: center;
+     align-items: center;
+     font-weight: bold;
+     font-size: 14px;
+     border-radius: 3px;
+ }
+
+ textarea {
+     margin-top: 15px;
+     width: 255px;
+     height: 40px;
+     border-radius: 3px;
+ }
 
 .post-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     background: white;
-    height: 700px;
-    width: auto;
+    min-height: 700px;
+    width: 615px;
     border: 1px solid lightgray;
+    border-radius: 3px;
+    margin-top: 62px;
 
 }
 
 .card-prop {
  justify-content: center;
+ margin-left: 10px;
+}
+
+.card-prop-icons  {
+    margin-top: 10px;
+    margin-left: 15px;
+    justify-content: center;
+    height: 35px;
+}
+
+.card-prop-icons > i {
+    height: 15px;
+    width: 15px;    
 }
 
 .card-img {

@@ -8,7 +8,12 @@ import PostIndexContainer from './posts/post_index_container';
 
 const App = () => (
     <section>
-        <nav className="nav"> Instasham </nav>
+        <nav className="nav"> 
+            <div className='insta-cam' >
+                <i class="fab fa-instagram"></i>
+            </div>
+            <span> Instasham</span>  
+        </nav>
         <Switch>
             <ProtectedRoute exact path="/feed" component={PostIndexContainer} />
             <AuthRoute path="/signup" component={SignupContainer} />
