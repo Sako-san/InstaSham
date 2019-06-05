@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-    validate :ensure_photo
+    # validate :ensure_photo
 
     belongs_to :author, 
     foreign_key: :author_id,

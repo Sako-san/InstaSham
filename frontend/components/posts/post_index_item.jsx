@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PostIndexItem = ({ post, deletePost }) => { 
-    console.log(post.location)
     return (
         <li>
             {post.username}
             <br/>
             {post.location}
+            <br/>
+            <img src={post.photoUrl}/>
             <br/>
             {post.body}
             <br/>
