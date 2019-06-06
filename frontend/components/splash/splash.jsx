@@ -19,7 +19,7 @@ const splash = ({ currentUser, logout }) => {
                         <span>
                             {currentUser.name}
                         </span>
-                        <span>
+                        <span className='lighter-name'>
                             {currentUser.username}
                         </span>
                     </div>

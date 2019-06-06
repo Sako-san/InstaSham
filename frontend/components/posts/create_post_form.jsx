@@ -54,8 +54,6 @@ class CreatePostForm extends React.Component {
          <img height="200px" width="200px" src={this.state.photoUrl} /> 
          : null;
 
-        console.log(this.state);
-
         return (
             <div >
                 <h3 className='create-post-head' >{this.props.formType}</h3>

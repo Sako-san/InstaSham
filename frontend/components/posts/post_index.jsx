@@ -20,6 +20,12 @@ class PostIndex extends React.Component {
 
         return (
             <>
+            <nav className="nav">
+                <div className='insta-cam' >
+                    <i className="fab fa-instagram"></i>
+                </div>
+                <span> Instasham</span>
+            </nav>
             <ul className='post-index-ul' >
                 {posts}
             </ul>

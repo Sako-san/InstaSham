@@ -2,10 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PostIndexItem = ({ post, deletePost }) => { 
+
+// const checkUser = () => {
+//     if( post.author_id === currentUser.id ) {
+//         return (
+//             <button className="card-prop-delete" onClick={() => deletePost(post.id)}>Delete</button>
+//         );
+//     };
+// };
+
     return (
         <li className="post-card">
             <div className='user-info-card'>
-                <img height='50px' width='50px' className='prof-pic' src={window.timprof} />
+                <img height='45px' width='45px' className='prof-pic' src={window.timprof} />
                 <div className='names-card'>
                     <span>
                         {post.username}
@@ -14,10 +23,13 @@ const PostIndexItem = ({ post, deletePost }) => {
                         {post.location}
                     </span>
                 </div>
+                <div className='dots'>
+                    <i className="fas fa-ellipsis-h"></i>
+                </div>
             </div>
             <br/>
             <div className= "card-img">
-                <img height="500px" width="400px" src={post.photoUrl} />
+                <img className='post-image' src={post.photoUrl} />
             </div>
             <div className="card-prop-icons">
                 <div className='left-box'>
@@ -52,7 +64,8 @@ const PostIndexItem = ({ post, deletePost }) => {
                 {post.created_at}
             </span>
             <br/>
-            <button className="card-prop" onClick={() => deletePost(post.id)}>Delete</button>
+            {/* {checkUser()} */}
+            <button className="card-prop-delete" onClick={() => deletePost(post.id)}>Delete</button>
         </li>);
 };
 

@@ -4,7 +4,7 @@ main {
 }
 
 .main-div {
-    margin-top: 80px;
+    margin-top: 73px;
     justify-content: center;
 }
 
@@ -26,7 +26,7 @@ main {
 
 .user-info-card {
     display: flex;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: 15px;
 }
 
@@ -44,11 +44,24 @@ main {
     position: fixed;
 }
 
+.lighter-name {
+    color: rgb(160, 160, 160);
+    font-size: 14px;
+    margin-top: 3px;
+}
+
 .names-card {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     margin-left: 10px;
+    margin-top: 5px;
+}
+
+.dots {
+    margin-left: 400px;
+    margin-top: 5px;
+    align-self: center;
+    color: gray;
 }
 
 .prof-pic {
@@ -155,6 +168,12 @@ main {
 
 }
 
+.post-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
 .user-body {
     display: flex;
 }
@@ -167,6 +186,10 @@ main {
 .card-prop {
  justify-content: center;
  margin-left: 15px;
+}
+
+.card-prop-delete {
+margin-bottom: 15px;
 }
 
 .card-prop-icons  {
@@ -209,13 +232,19 @@ main {
 
 
 .icon4 {
+    margin-top: 5px;
     height: 40px;
     width: 40px;
     margin-left: 275px;
 }
 
 .card-img {
-    object-fit: cover;
+    display: flex;
+    justify-content: center;
     margin: 0 auto;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+    height: 500px;
 }
 

@@ -44,6 +44,8 @@
  }
 
 .signup-formbox {
+    display: flex;
+    flex-direction: column;
     background: white;
     max-width: 390px;
     height: 500px;
