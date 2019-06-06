@@ -130,7 +130,7 @@ main {
      width: 263px;
      height: 38px;
      margin: 0 auto;
-     margin-top: 20px;
+     margin-top: 10px;
      font-weight: bold;
      font-size: 14px;
      border-radius: 3px;
@@ -190,6 +190,7 @@ main {
 
 .card-prop-delete {
 margin-bottom: 15px;
+background: red;
 }
 
 .card-prop-timestamp {
@@ -218,6 +219,11 @@ margin-bottom: 15px;
 
 .icon1 {
     width: 20px;
+}
+
+.icon1:active {
+    width: 20px;
+    color: red;
 }
 
 .icon2 {

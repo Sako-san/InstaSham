@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createPost, clearErrors } from '../../util/post_api_util';
+import PostIndex from './post_index';
 
 class CreatePostForm extends React.Component {
     constructor(props) {
