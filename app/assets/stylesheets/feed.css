@@ -192,6 +192,13 @@ main {
 margin-bottom: 15px;
 }
 
+.card-prop-timestamp {
+ justify-content: center;
+ margin-left: 15px;
+ color: lightgray;
+ font-size: smaller;
+}
+
 .card-prop-icons  {
     display: flex;
     margin-left: 15px;
