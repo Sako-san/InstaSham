@@ -201,7 +201,7 @@ margin-bottom: 15px;
 
 .card-prop-icons  {
     display: flex;
-    margin-left: 15px;
+    /* margin-left: 15px; */
     align-items: center;
     justify-content: space-around;
     height: 50px;
@@ -242,7 +242,7 @@ margin-bottom: 15px;
     margin-top: 5px;
     height: 40px;
     width: 40px;
-    margin-left: 275px;
+    margin-left: 280px;
 }
 
 .card-img {

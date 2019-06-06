@@ -9,11 +9,11 @@ import PostIndexContainer from './posts/post_index_container';
 const App = () => (
     <section>
         <Switch>
-            <ProtectedRoute exact path="/feed" component={PostIndexContainer} />
+            <ProtectedRoute path="/feed" component={PostIndexContainer} />
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />
             
-            <Route exact path='/' component={SplashContainer} />
+            <Route path='/' component={SplashContainer} />
         </Switch>
     </section>
 );

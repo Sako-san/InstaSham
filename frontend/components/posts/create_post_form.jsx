@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { createPost } from '../../util/post_api_util';
+import { connect } from 'react-redux';
+import { createPost, clearErrors } from '../../util/post_api_util';
 
 class CreatePostForm extends React.Component {
     constructor(props) {
@@ -14,6 +15,10 @@ class CreatePostForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
     };
+
+    // componentWillUnmount() {
+    //     this.props.clearErrors();
+    // }
 
     update(field) {
         return (e) => {
@@ -36,19 +41,18 @@ class CreatePostForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const { createPost } = this.props
-        const { location, body, photoFile } = this.state;
         const formData = new FormData();
         formData.append('post[location]', this.state.location);
         formData.append('post[body]', this.state.body);
         formData.append('post[photo]', this.state.photoFile);
 
+        const { history } = this.props;
         this.props.createPost(formData);
     };
 
     render() {
 
-        const { photoFile, photoUrl } = this.state;
+        const {body, location, photoFile, photoUrl } = this.state;
 
         const thumbnail = this.state.photoUrl ?
          <img height="200px" width="200px" src={this.state.photoUrl} /> 

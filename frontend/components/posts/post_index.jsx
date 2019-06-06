@@ -5,6 +5,8 @@ import PostIndexItem from './post_index_item';
 
 
 class PostIndex extends React.Component {
+
+
     componentDidMount() {
         this.props.fetchPosts();
     }
@@ -20,7 +22,7 @@ class PostIndex extends React.Component {
 
         return (
             <>
-            <nav className="nav">
+            <nav className="nav" >
                 <div className='insta-cam' >
                     <i className="fab fa-instagram"></i>
                 </div>
