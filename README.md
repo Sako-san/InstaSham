@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Live: [Instasham] (https://instagramsham.herokuapp.com/#/ "Instasham")
 
-Things you may want to cover:
+Instasham is single-page web application cloning the popular social-media app [Instagram] (https://www.instagram.com/ "Instagram"). Users can sign up, and instantly start sharing photos with friends!
 
-* Ruby version
+# Feature Highlights
 
-* System dependencies
+## Feed
 
-* Configuration
+## Posting
 
-* Database creation
+# Technologies
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Future Implementations
+* User Profiles with personal show pagse of content
+* User interactions such as:
+    * Likes
+    * Comments
+    * Sharing
+    * Bookmarking
