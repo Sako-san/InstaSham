@@ -63,7 +63,6 @@ class SignupSessionForm extends React.Component {
                 <form className='form' onSubmit={this.handleSubmit}>
                     <label>
                         <input
-                        required
                             type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
@@ -74,7 +73,6 @@ class SignupSessionForm extends React.Component {
                     <br/>
                     <label>
                         <input
-                        required
                             type="text"
                             value={this.state.name}
                             onChange={this.update('name')}
@@ -85,7 +83,6 @@ class SignupSessionForm extends React.Component {
                     <br/>
                     <label>
                         <input
-                        required
                             type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
@@ -96,7 +93,6 @@ class SignupSessionForm extends React.Component {
                     <br/>
                     <label >
                         <input
-                        required
                             type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
