@@ -72,7 +72,7 @@ class CreatePostForm extends React.Component {
                         <br/>
                         <label className='submit' onChange={this.handleFile}>
                             <span>Upload Photo</span> 
-                            <input className='upload-button' type="file"/>
+                            <input className='upload-button' type="file" accept='image/*'/>
                         </label> 
                         <br/>
                         <textarea
