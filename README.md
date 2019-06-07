@@ -1,8 +1,8 @@
 # README
 
-## Live: [Instasham] (https://instagramsham.herokuapp.com/#/ "Instasham")
+## Live: [Instasham](https://instagramsham.herokuapp.com/#/ "Instasham")
 
-Instasham is single-page web application cloning the popular social-media app [Instagram] (https://www.instagram.com/ "Instagram"). Users can sign up, and instantly start sharing photos with friends!
+Instasham is single-page web application cloning the popular social-media app [Instagram](https://www.instagram.com/ "Instagram"). Users can sign up, and instantly start sharing photos with friends!
 
 # Feature Highlights
 
