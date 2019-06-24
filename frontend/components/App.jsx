@@ -10,12 +10,7 @@ import UserProfileContainer from './users/user_profile_container';
 const App = () => (
     <section>
         <Switch>
-<<<<<<< HEAD
             <ProtectedRoute path="/feed" component={PostIndexContainer} />
-=======
-            <ProtectedRoute exact path="/feed" component={PostIndexContainer} />
-            <ProtectedRoute exact path="/profile" component={UserProfileContainer} />
->>>>>>> profiles
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />
             
