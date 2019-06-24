@@ -1,0 +1,79 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+section {
+    height: 100%;
+    width: 100%;
+}
+main {
+    height: 100%;
+    width: 100%;
+}
+
+.main-prof {
+    height: 100%;
+    width: 100%;
+}
+
+.user-info-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+    border: 1px solid lightgray;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.user-profpic {
+    margin: 50px;
+    margin-bottom: 150px;
+}
+.user-profile-block {
+    justify-content: space-around;
+    border: 1px solid lightgray;
+    margin-left: 45px;
+}
+
+.profile-interaction-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 75px;
+    border: 1px solid lightgray;
+}
+
+.edit-prof {
+    height: 20px;
+    width: 75px;
+}
+
+.settings {
+    height: 25px;
+    width: 25px;
+}
+
+.stats-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid lightgray;
+}
+
+.bio-block {
+    height: 200px;
+    width: auto;
+}
+
+.user-post-index {
+    margin-top: 50px;
+}
+
+
+
