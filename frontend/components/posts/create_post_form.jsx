@@ -1,26 +1,35 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+<<<<<<< HEAD
 import { connect } from 'react-redux';
 import { createPost, clearErrors } from '../../util/post_api_util';
 import PostIndex from './post_index';
+=======
+import { fetchPosts, fetchPost, createPost } from '../../util/post_api_util';
+>>>>>>> profiles
 
 class CreatePostForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            location: '',
-            body: '',
-            photoFile: null,
-            photoUrl: null
-        };
+        
+        this.state = this.props.post;
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
+        this.update = this.update.bind(this);
     };
 
+<<<<<<< HEAD
     // componentWillUnmount() {
     //     this.props.clearErrors();
     // }
 
+=======
+
+    componentDidMount() {
+        this.props.fetchPosts();
+    }
+>>>>>>> profiles
     update(field) {
         return (e) => {
             this.setState({ [field]: e.target.value });
@@ -37,11 +46,17 @@ class CreatePostForm extends React.Component {
 
         if (file) {
             reader.readAsDataURL(file);
-        };
+        } else {
+            this.setState({ photoUrl: '', photoFile: null });
+        } 
     };
 
     handleSubmit(e) {
         e.preventDefault();
+<<<<<<< HEAD
+=======
+
+>>>>>>> profiles
         const formData = new FormData();
         formData.append('post[location]', this.state.location);
         formData.append('post[body]', this.state.body);
@@ -49,11 +64,17 @@ class CreatePostForm extends React.Component {
 
         const { history } = this.props;
         this.props.createPost(formData);
+        this.setState({ location: '', photoUrl: null, photoFile: null, body: ''})
     };
 
     render() {
 
+<<<<<<< HEAD
         const {body, location, photoFile, photoUrl } = this.state;
+=======
+        
+        const { photoFile, photoUrl } = this.state;
+>>>>>>> profiles
 
         const thumbnail = this.state.photoUrl ?
          <img height="200px" width="200px" src={this.state.photoUrl} /> 
@@ -62,7 +83,7 @@ class CreatePostForm extends React.Component {
         return (
             <div >
                 <h3 className='create-post-head' >{this.props.formType}</h3>
-                <form className='form-container' onSubmit={this.handleSubmit.bind(this)}>
+                <form className='form-container' onSubmit={this.handleSubmit}>
                         <br/>
                     <input
                             type="text"

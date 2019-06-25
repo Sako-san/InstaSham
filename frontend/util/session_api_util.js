@@ -10,6 +10,7 @@ export const createUser = (user) => (
                 password: user.password,
                 email: user.email,
                 name: user.name,
+                user: user.id,
             }
         }
     })

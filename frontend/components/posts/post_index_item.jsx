@@ -2,8 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { dateUtil } from '../../util/date_post_util';
 
+<<<<<<< HEAD
 const PostIndexItem = ({ currentUser, post, deletePost }) => {  
     
+=======
+const PostIndexItem = ({ post, deletePost, user }) => { 
+
+    const deleteButton = (post, user) => {
+        if (post.author.id === user.id){
+         return (< button className = "card-prop-delete" onClick = {() => deletePost(post.id) }> Delete</button >)
+        }
+    }
+>>>>>>> profiles
     return (
         <li className="post-card">
             <div className='user-info-card'>
@@ -57,8 +67,12 @@ const PostIndexItem = ({ currentUser, post, deletePost }) => {
                 {dateUtil(post.created_at)}
             </span>
             <br/>
+<<<<<<< HEAD
             
             <button className="card-prop-delete" onClick={() => deletePost(post.id)}>Delete</button>
+=======
+            {deleteButton(post, user)}
+>>>>>>> profiles
         </li>);
 };
 
