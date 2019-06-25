@@ -1,20 +1,22 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { createPost } from '../../util/post_api_util';
+import { fetchPosts, fetchPost, createPost } from '../../util/post_api_util';
 
 class CreatePostForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            location: '',
-            body: '',
-            photoFile: null,
-            photoUrl: null
-        };
+        
+        this.state = this.props.post;
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
+        this.update = this.update.bind(this);
     };
 
+
+    componentDidMount() {
+        this.props.fetchPosts();
+    }
     update(field) {
         return (e) => {
             this.setState({ [field]: e.target.value });
@@ -31,23 +33,26 @@ class CreatePostForm extends React.Component {
 
         if (file) {
             reader.readAsDataURL(file);
-        };
+        } else {
+            this.setState({ photoUrl: '', photoFile: null });
+        } 
     };
 
     handleSubmit(e) {
         e.preventDefault();
-        const { createPost } = this.props
-        const { location, body, photoFile } = this.state;
+
         const formData = new FormData();
         formData.append('post[location]', this.state.location);
         formData.append('post[body]', this.state.body);
         formData.append('post[photo]', this.state.photoFile);
 
         this.props.createPost(formData);
+        this.setState({ location: '', photoUrl: null, photoFile: null, body: ''})
     };
 
     render() {
 
+        
         const { photoFile, photoUrl } = this.state;
 
         const thumbnail = this.state.photoUrl ?
@@ -57,7 +62,7 @@ class CreatePostForm extends React.Component {
         return (
             <div >
                 <h3 className='create-post-head' >{this.props.formType}</h3>
-                <form className='form-container' onSubmit={this.handleSubmit.bind(this)}>
+                <form className='form-container' onSubmit={this.handleSubmit}>
                         <br/>
                     <input
                             type="text"
