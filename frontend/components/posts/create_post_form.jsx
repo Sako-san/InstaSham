@@ -53,10 +53,6 @@ class CreatePostForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-<<<<<<< HEAD
-=======
-
->>>>>>> profiles
         const formData = new FormData();
         formData.append('post[location]', this.state.location);
         formData.append('post[body]', this.state.body);
@@ -69,12 +65,8 @@ class CreatePostForm extends React.Component {
 
     render() {
 
-<<<<<<< HEAD
-        const {body, location, photoFile, photoUrl } = this.state;
-=======
         
         const { photoFile, photoUrl } = this.state;
->>>>>>> profiles
 
         const thumbnail = this.state.photoUrl ?
          <img height="200px" width="200px" src={this.state.photoUrl} /> 
