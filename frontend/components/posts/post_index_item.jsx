@@ -2,10 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { dateUtil } from '../../util/date_post_util';
 
-<<<<<<< HEAD
-const PostIndexItem = ({ currentUser, post, deletePost }) => {  
-    
-=======
 const PostIndexItem = ({ post, deletePost, user }) => { 
 
     const deleteButton = (post, user) => {
@@ -13,11 +9,10 @@ const PostIndexItem = ({ post, deletePost, user }) => {
          return (< button className = "card-prop-delete" onClick = {() => deletePost(post.id) }> Delete</button >)
         }
     }
->>>>>>> profiles
     return (
         <li className="post-card">
             <div className='user-info-card'>
-                <img height='45px' width='45px' className='prof-pic' src={window.blankprof} />
+                <img height='45px' width='45px' className='prof-pic' src={window.timprof} />
                 <div className='names-card'>
                     <span>
                         {post.username}
@@ -67,12 +62,7 @@ const PostIndexItem = ({ post, deletePost, user }) => {
                 {dateUtil(post.created_at)}
             </span>
             <br/>
-<<<<<<< HEAD
-            
-            <button className="card-prop-delete" onClick={() => deletePost(post.id)}>Delete</button>
-=======
             {deleteButton(post, user)}
->>>>>>> profiles
         </li>);
 };
 
