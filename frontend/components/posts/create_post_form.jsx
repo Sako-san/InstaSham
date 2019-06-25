@@ -1,12 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-<<<<<<< HEAD
-import { connect } from 'react-redux';
-import { createPost, clearErrors } from '../../util/post_api_util';
-import PostIndex from './post_index';
-=======
 import { fetchPosts, fetchPost, createPost } from '../../util/post_api_util';
->>>>>>> profiles
 
 class CreatePostForm extends React.Component {
     constructor(props) {
@@ -19,17 +13,10 @@ class CreatePostForm extends React.Component {
         this.update = this.update.bind(this);
     };
 
-<<<<<<< HEAD
-    // componentWillUnmount() {
-    //     this.props.clearErrors();
-    // }
-
-=======
 
     componentDidMount() {
         this.props.fetchPosts();
     }
->>>>>>> profiles
     update(field) {
         return (e) => {
             this.setState({ [field]: e.target.value });
