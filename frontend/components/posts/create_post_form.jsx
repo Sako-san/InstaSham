@@ -53,7 +53,10 @@ class CreatePostForm extends React.Component {
     render() {
 
         
-        const { photoFile, photoUrl } = this.state;
+        const { location, photoFile, photoUrl, body } = this.state;
+
+        const isEnabled = location.length > 0 && body.length > 0 && photoFile !== null && photoUrl !== null
+
 
         const thumbnail = this.state.photoUrl ?
          <img height="200px" width="200px" src={this.state.photoUrl} /> 
@@ -70,7 +73,7 @@ class CreatePostForm extends React.Component {
                             onChange={this.update('location')}
                             placeholder='Add Location' />
                         <br/>
-                        <label className='submit' onChange={this.handleFile}>
+                        <label className='submit' onChange={this.handleFile} >
                             <span>Upload Photo</span> 
                             <input className='upload-button' type="file" accept='image/*'/>
                         </label> 
@@ -80,7 +83,8 @@ class CreatePostForm extends React.Component {
                             onChange={this.update('body')} 
                             placeholder='Say something cool...'/>
                         <br/>
-                    <input className='submit' type="submit" value={this.props.formType} />
+                    
+                    <input disabled={!isEnabled} className='submit' type="submit" value={this.props.formType} />
 
                     <div className='thumbnail'> {thumbnail} </div> 
                 </form>

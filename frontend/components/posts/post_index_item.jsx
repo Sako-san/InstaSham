@@ -22,7 +22,7 @@ const PostIndexItem = ({ post, deletePost, user }) => {
                     </span>
                 </div>
                 <div className='dots'>
-                    <i className="fas fa-ellipsis-h"></i>
+                    {/* <i className="fas fa-ellipsis-h"></i> */}
                 </div>
             </div>
             <br/>
@@ -32,18 +32,18 @@ const PostIndexItem = ({ post, deletePost, user }) => {
             <div className="card-prop-icons">
                 <div className='left-box'>
                     <div className='icon1'>
-                    <i className="far fa-heart"></i>
+                    {/* <i className="far fa-heart"></i> */}
                     </div>
                     <div className='icon2'>
-                    <i className="far fa-comment"></i>
+                    {/* <i className="far fa-comment"></i> */}
                     </div>
-                    <div className='icon3'>
-                    <i className="fas fa-arrow-up"></i>
-                    </div>
+                    {/* <div className='icon3'> */}
+                    {/* <i className="fas fa-arrow-up"></i> */}
+                    {/* </div> */}
                 </div>
                 <div className='right-box'>
                     <div className='icon4'>
-                        <i className="far fa-bookmark "></i>
+                        {/* <i className="far fa-bookmark "></i> */}
                     </div>
                 </div>
             </div>

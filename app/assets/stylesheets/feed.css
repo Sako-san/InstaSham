@@ -140,6 +140,23 @@ main {
      cursor: pointer;
  }
 
+  .submit:disabled {
+     display: flex;
+     background: rgba(128, 201, 247, 0.6);
+     color: white;
+     width: 263px;
+     height: 38px;
+     margin: 0 auto;
+     margin-top: 10px;
+     font-weight: bold;
+     font-size: 14px;
+     border-radius: 3px;
+     text-align: center;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+ }
+
  .thumbnail {
     margin-top: 50px;
     margin-left: 30px;
