@@ -2,17 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { dateUtil } from '../../util/date_post_util';
 
-const PostIndexItem = ({ post, deletePost, user }) => { 
+const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike }) => { 
 
     const deleteButton = (post, user) => {
         if (post.author.id === user.id){
          return (< button className = "card-prop-delete" onClick = {() => deletePost(post.id) }> Delete</button >)
         }
     }
+
+    const likeButton = (post) => {
+        console.log(post.id)
+        createLike(post.id)
+    }
+
+
     return (
         <li className="post-card">
             <div className='user-info-card'>
-                <img height='45px' width='45px' className='prof-pic' src={window.timprof} />
+                <img height='45px' width='45px' className='prof-pic' src="" />
                 <div className='names-card'>
                     <span>
                         {post.username}
@@ -32,7 +39,7 @@ const PostIndexItem = ({ post, deletePost, user }) => {
             <div className="card-prop-icons">
                 <div className='left-box'>
                     <div className='icon1'>
-                    <i className="far fa-heart"></i>
+                        <i className="far fa-heart" onClick={ () => likeButton(post) }></i>
                     </div>
                     <div className='icon2'>
                     <i className="far fa-comment"></i>
@@ -47,7 +54,8 @@ const PostIndexItem = ({ post, deletePost, user }) => {
                     </div>
                 </div>
             </div>
-
+            <span className='likes'>likes</span>
+            <span className='count'>{post.like_counter}</span>
             <br/>
             <div className='user-body'>
                 <span className='username-body'>

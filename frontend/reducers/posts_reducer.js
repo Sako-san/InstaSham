@@ -8,6 +8,7 @@ const postsReducer = (oldState = {}, action) => {
 
     switch( action.type ) {
         case RECEIVE_LIKE:
+            console.log('here');
             newState[action.like.post_id].like_counter += 1;
             newState[action.like.post_id].like_by_user = true;
             return newState;
