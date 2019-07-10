@@ -11,10 +11,14 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike }) => {
     }
 
     const likeButton = (post) => {
-        createLike( { 
-            post_id: post.id,
-            likeId: user.id
-        } )
+        if (post.like_ids.includes(user.id)){
+            console.log(post.id)
+        } else {
+            createLike({
+                post_id: post.id,
+                like_id: user.id
+            })
+        }
     }
 
 
@@ -57,7 +61,7 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike }) => {
                 </div>
             </div>
             <span className='likes'>likes</span>
-            <span className='count'>{post.like_counter}</span>
+            <span className='count'>{post.like_ids.length}</span>
             <br/>
             <div className='user-body'>
                 <span className='username-body'>
