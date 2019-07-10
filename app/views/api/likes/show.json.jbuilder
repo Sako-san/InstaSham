@@ -1,1 +1,1 @@
-json.partial! 'api/likes/like', like: @like
+json.extract! @like, :id, :user_id, :post_id

@@ -17,12 +17,13 @@ class Api::LikesController < ApplicationController
             render :show
         else
             render json: ["Like #{params[:id]} not found"], status: 422
+        end
     end
 
     def destroy
         @like = Like.find_by(user_id: current_user.id, post_id: params[:id])
         if @like
-            @like.destroy!
+            @like.destroy
             render json: {post_id: @like.post_id}
         else
             render json: ["No 'Like' to delete"], status: 422
@@ -32,6 +33,6 @@ class Api::LikesController < ApplicationController
     private
 
     def like_params
-        params.require(:like).permit(:post_id)
+        params.require(:like).permit( :user_id, :post_id)
     end
 end

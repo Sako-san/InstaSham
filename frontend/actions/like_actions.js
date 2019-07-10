@@ -21,8 +21,7 @@ const receiveErr = (errors) => ({
 });
 
 export const createLike = (like) => (dispatch) => (
-    APIUtil.createLike(like).then((like) => dispatch(receiveLike(like)), errors => (dispatch(receiveErr(errors.responseJSON))))
-);
+    APIUtil.createLike(like).then( (like) => { return dispatch(receiveLike(like)); }))
 
 export const deleteLike = (post_id) => (dispatch) => (
     APIUtil.deleteLike(post_id).then((res) => dispatch(removeLike(post_id), errors => (dispatch(receiveErr(errors.responseJSON)))))

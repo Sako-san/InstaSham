@@ -11,8 +11,10 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike }) => {
     }
 
     const likeButton = (post) => {
-        console.log(post.id)
-        createLike(post.id)
+        createLike( { 
+            post_id: post.id,
+            likeId: user.id
+        } )
     }
 
 
