@@ -3,7 +3,5 @@ json.username User.all.find(post.author_id).username
 json.photoUrl url_for(post.photo)
 
 if post.likes
-    json.like_ids post.likes.pluck(:id)
-else
-    json.like_ids []
+    json.like_ids post.likes.pluck(:user_id)
 end

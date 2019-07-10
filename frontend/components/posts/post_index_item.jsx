@@ -11,15 +11,15 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike }) => {
     }
 
     const likeButton = (post) => {
-        if (post.like_ids.includes(user.id)){
-            console.log(post.id)
+        if (post.like_ids.includes(user.id)) {
+            deleteLike({post_id: post.id});
         } else {
             createLike({
                 post_id: post.id,
                 like_id: user.id
             })
-        }
-    }
+        };
+    };
 
 
     return (
