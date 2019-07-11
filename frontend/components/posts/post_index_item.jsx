@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { dateUtil } from '../../util/date_post_util';
 
-const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike }) => { 
+const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => { 
 
     const deleteButton = (post, user) => {
         if (post.author.id === user.id){
@@ -12,7 +12,7 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike }) => {
 
     const likeButton = (post) => {
         if (post.like_ids.includes(user.id)) {
-            deleteLike({post_id: post.id});
+            deleteLike({ post_id: post.id });
         } else {
             createLike({
                 post_id: post.id,
@@ -20,7 +20,6 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike }) => {
             })
         };
     };
-
 
     return (
         <li className="post-card">

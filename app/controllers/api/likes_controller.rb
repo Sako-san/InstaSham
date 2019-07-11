@@ -24,7 +24,7 @@ class Api::LikesController < ApplicationController
         @like = Like.find_by(user_id: current_user.id, post_id: params[:id])
         if @like
             @like.destroy
-            render json: {post_id: @like.post_id}
+            render :show
         else
             render json: ["No 'Like' to delete"], status: 422
         end

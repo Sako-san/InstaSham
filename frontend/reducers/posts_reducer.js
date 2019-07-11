@@ -8,10 +8,11 @@ const postsReducer = (oldState = {}, action) => {
 
     switch( action.type ) {
         case RECEIVE_LIKE:
-            newState[action.like.post_id].like_ids.push(action.like.like_ids)
+            newState[action.like.post_id].like_ids.push(action.like.user_id);
             return newState;
         case REMOVE_LIKE:
-            return newState
+            debugger
+            return newState;
         case RECEIVE_ALL_POSTS:
             return action.posts;
         case RECEIVE_POST:
