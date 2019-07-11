@@ -11,7 +11,8 @@ const postsReducer = (oldState = {}, action) => {
             newState[action.like.post_id].like_ids.push(action.like.user_id);
             return newState;
         case REMOVE_LIKE:
-            debugger
+            newState[action.like.post_id].like_ids =
+                newState[action.like.post_id].like_ids.filter( id => id !== action.like.like_id);
             return newState;
         case RECEIVE_ALL_POSTS:
             return action.posts;
