@@ -14,7 +14,11 @@ const splash = ({ currentUser, logout }) => {
             </div>
             <div className="profile-div">
                 <div className='user-info'>
+<<<<<<< HEAD
                     <img height='50px' width='50px' className='prof-pic' src={window.blankprof} />
+=======
+                    <img height='50px' width='50px' className='prof-pic' src="" />
+>>>>>>> likes
                     <div className='names'>
                         <span>
                             {currentUser.name}

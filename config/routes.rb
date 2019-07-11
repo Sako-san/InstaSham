@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :create, :edit, :destroy]
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
   end
 end

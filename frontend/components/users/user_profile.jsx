@@ -3,12 +3,21 @@ import React from 'react';
 class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
+<<<<<<< HEAD
         console.log(props.posts)
     };
 
     componentDidMount() {
         const user = this.props.currentUser;
         const posts = this.props.posts;
+=======
+         
+        console.log(this.props.currentUser)
+    };
+
+    componentDidMount() {
+        this.props.fetchPosts();
+>>>>>>> likes
     }
 
     render() {

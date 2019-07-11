@@ -17,7 +17,9 @@ class PostIndex extends React.Component {
             key= {post.id}
             post= {post}
             user = {this.props.currentUser}
-            deletePost={this.props.deletePost} 
+            deletePost={this.props.deletePost}
+            createLike={this.props.createLike}
+            deleteLike={this.props.deleteLike} 
             />)
         });
 
