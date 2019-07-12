@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchPosts, deletePost } from '../../actions/post_actions';
-import { createLike, deleteLike } from '../../actions/like_actions'
+import { createLike, deleteLike } from '../../actions/like_actions';
+import { createComment, deleteComment } from '../../actions/comment_actions';
 import { logout } from '../../actions/session_actions';
 import PostIndex from './post_index';
 
@@ -16,6 +17,9 @@ const mapDispatchToProps = dispatch => ({
 
     createLike: (like) => dispatch(createLike(like)),
     deleteLike: (likeId) => dispatch(deleteLike(likeId)),
+
+    createComment: (comment) => dispatch(createComment(comment)),
+    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
 
     logout: () => dispatch(logout().then( () => this.props.history.push('/login')))
 });
