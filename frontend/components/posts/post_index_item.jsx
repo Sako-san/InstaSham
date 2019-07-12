@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { dateUtil } from '../../util/date_post_util';
 
-const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => { 
+const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike, createComment, deleteComment}) => { 
 
     const deleteButton = (post, user) => {
         if (post.author.id === user.id){
@@ -22,6 +22,31 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                 like_id: user.id
             })
         };
+    };
+
+    const update = (field) => {
+        return (e) => {
+            this.setState({
+                [field]: e.currentTarget.value
+            });
+        };
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        createComment({
+            comment_body: this.state.comment_body,
+            comment_id: user.id,
+            post_id: post.id
+        });
+
+        this.setState({
+            comment_body: ''
+        });
+
+        const form = document.getElementById(`comment-${post.id}`);
+        form.reset();
     };
 
     return (
@@ -73,11 +98,23 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                     {post.body}
                 </span>
             </div>
+            <div className='comment-listing'>
+                <ul>
+
+                </ul>
+            </div>
             <br/>
             <span className="card-prop-timestamp">
                 {dateUtil(post.created_at)}
             </span>
             <br/>
+
+            <section className="comment-form-section">
+                <form onSubmit={handleSubmit} id={`comment-form-${post.id}`} className='post-comment'>
+                    <input onChange={update('comment_body')} id={`comment-${post.id}`} placeholder="Add a comment..." />
+                    <button className="submit-comment" onClick={handleSubmit}>Post</button>
+                </form>
+            </section>
             {deleteButton(post, user)}
         </li>);
 };
