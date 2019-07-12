@@ -1,5 +1,5 @@
 
-export const fetchAllComments = () => {
+export const fetchComments = () => {
     return (
         $.ajax({
             method: 'GET',
