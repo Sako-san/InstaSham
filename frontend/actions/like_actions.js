@@ -20,7 +20,8 @@ const receiveErr = (errors) => ({
 });
 
 export const createLike = (like) => (dispatch) => (
-    APIUtil.createLike(like).then( (like) => { return dispatch(receiveLike(like)); }))
+    APIUtil.createLike(like).then( (like) => { return dispatch(receiveLike(like)); })
+);
 
 export const deleteLike = (like) => (dispatch) => (
     APIUtil.deleteLike(like).then( () => dispatch(removeLike(like)))
