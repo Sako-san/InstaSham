@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { dateUtil } from '../../util/date_post_util';
 import CreateComment from './create_comment';
+import PostCommentIndex from './post_comment_index';
 
 const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => { 
 
@@ -75,6 +76,7 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                 </span>
             </div>
             <br/>
+            <PostCommentIndex/>
             <br/>
             <span className="card-prop-timestamp">
                 {dateUtil(post.created_at)}
