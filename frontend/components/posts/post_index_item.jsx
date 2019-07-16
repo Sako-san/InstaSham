@@ -76,7 +76,8 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                 </span>
             </div>
             <br/>
-            <PostCommentIndex/>
+            <PostCommentIndex
+                post_id={post.id}/>
             <br/>
             <span className="card-prop-timestamp">
                 {dateUtil(post.created_at)}

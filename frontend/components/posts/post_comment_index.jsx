@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchComments } from '../../actions/comment_actions';
-import { cpus } from 'os';
+
 
 class PostCommentIndex extends React.Component {
     constructor(props) {
@@ -16,12 +16,15 @@ class PostCommentIndex extends React.Component {
 
     render() {
         const comments = this.props.comments.map(comment => {
-            return (
-                <li key={comment.id}>
-                    <span>{comment.user_id}</span>
-                    <p>{comment.comment_body}</p>
-                </li>
-            )
+            if( comment.post_id === this.props.post_id ){
+                return (
+                    <li key={comment.id}>
+                        <span>{comment.user_id}</span>
+                        <p>{comment.comment_body}</p>
+                    </li>
+                )
+            };
+
         });
 
         return (
