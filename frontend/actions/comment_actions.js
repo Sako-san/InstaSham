@@ -30,8 +30,8 @@ export const createComment = ( comment ) => (dispatch) => (
     commentAPIUtil.createComment(comment).then( (comment) => { return dispatch(receiveComment(comment)); })
 );
 
-export const fetchAllComments = () => (dispatch) => (
-    commentAPIUtil.fetchAllComments().then( (comments) => { return dispatch(receiveAllComments(comments)); })
+export const fetchComments = () => (dispatch) => (
+    commentAPIUtil.fetchComments().then( (comments) => { return dispatch(receiveAllComments(comments)); })
 );
 
 export const deleteComment = (comment) => (dispatch) => (

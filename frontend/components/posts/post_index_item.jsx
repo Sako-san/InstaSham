@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { dateUtil } from '../../util/date_post_util';
-import CommentContainer from '../../components/posts/comment_container';
+import CreateComment from './create_comment';
 
-const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike, createComment, deleteComment}) => { 
+const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => { 
 
     const deleteButton = (post, user) => {
         if (post.author.id === user.id){
@@ -75,14 +75,16 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike, createC
                 </span>
             </div>
             <br/>
-            < CommentContainer />
             <br/>
             <span className="card-prop-timestamp">
                 {dateUtil(post.created_at)}
             </span>
-           
             <br/>
             {deleteButton(post, user)}
+            <CreateComment
+                key={post.id}
+                post_id={post.id}
+                user_id={user.id}/>
         </li>);
 };
 

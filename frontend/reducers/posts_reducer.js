@@ -8,13 +8,6 @@ const postsReducer = (oldState = {}, action) => {
     let newState = merge({}, oldState);
 
     switch( action.type ) {
-        case RECEIVE_COMMENT:
-            newState[action.comment.post_id].comment_ids.push(action.comment.id);
-            return newState;
-        case REMOVE_COMMENT:
-            newState[action.comment.post_id].comment_ids = 
-                newState[action.comment.post_id].comment_ids.filter( id => id !== action.comment.id);
-            return newState;
         case RECEIVE_LIKE:
             newState[action.like.post_id].like_ids.push(action.like.user_id);
             return newState;
