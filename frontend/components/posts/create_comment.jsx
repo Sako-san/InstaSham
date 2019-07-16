@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { createComment } from '../../actions/comment_actions';
+import { createComment, fetchComments } from '../../actions/comment_actions';
 
 class CreateComment extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class CreateComment extends React.Component {
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    
     update(field) {
         return (e) => {
             this.setState({ [field]: e.target.value });
@@ -27,12 +27,7 @@ class CreateComment extends React.Component {
         commentData.post_id = this.props.post_id;
 
         this.props.createComment(commentData);
-        this.setState({ comment: {
-            comment_body: '',
-            post_id: '',
-            user_id: ''
-        }});
-
+        this.setState({comment_body: ''});
     };
 
     render() {
@@ -40,6 +35,7 @@ class CreateComment extends React.Component {
             <>
                 <form className='comment-box' onSubmit={this.handleSubmit}>
                     <input 
+                    id='create-comment'
                     type="text" 
                     value={this.state.comment_body}
                     onChange={this.update('comment_body')}
@@ -63,7 +59,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    createComment: (comment) => dispatch(createComment(comment))
+    createComment: (comment) => dispatch(createComment(comment)).then( () => fetchComments())
+    
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateComment);

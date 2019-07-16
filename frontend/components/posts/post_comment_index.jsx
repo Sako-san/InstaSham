@@ -13,6 +13,11 @@ class PostCommentIndex extends React.Component {
         this.props.fetchComments(); 
     }
     
+    componentDidUpdate(prevProps) {
+        if (this.props.comments.length > prevProps.comments.length) {
+            this.props.fetchComments();
+        };
+    };
 
     render() {
         const comments = this.props.comments.map(comment => {
