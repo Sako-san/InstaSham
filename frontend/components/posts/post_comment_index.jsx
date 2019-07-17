@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchComments } from '../../actions/comment_actions';
+import { fetchComments, deleteComment } from '../../actions/comment_actions';
 
 
 class PostCommentIndex extends React.Component {
     constructor(props) {
         super(props);
-        
+        console.log(this.props)
     }
 
     componentDidMount() {
@@ -24,8 +24,9 @@ class PostCommentIndex extends React.Component {
             if( comment.post_id === this.props.post_id ){
                 return (
                     <li key={comment.id}>
-                        <span>{comment.user_id}</span>
+                        <span>{comment.username}</span>
                         <p>{comment.comment_body}</p>
+                        
                     </li>
                 )
             };
@@ -44,12 +45,13 @@ class PostCommentIndex extends React.Component {
 
 const mapStateToProps = (state) => {
     return ({
-        comments: Object.keys(state.entities.comments).map( id => state.entities.comments[id])
+        comments: Object.keys(state.entities.comments).map( id => state.entities.comments[id]),
     })
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchComments: () => dispatch(fetchComments())
+    fetchComments: () => dispatch(fetchComments()),
+    deleteComment: (id) => dispatch(deleteComment(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostCommentIndex);

@@ -42,20 +42,20 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                     <i className="fas fa-ellipsis-h"></i>
                 </div>
             </div>
-            <br/>
-            <div className= "card-img">
+            <br />
+            <div className="card-img">
                 <img className='post-image' src={post.photoUrl} />
             </div>
             <div className="card-prop-icons">
                 <div className='left-box'>
                     <div className='icon1'>
-                        <i className="far fa-heart" onClick={ () => likeButton(post) }></i>
+                        <i className="far fa-heart" onClick={() => likeButton(post)}></i>
                     </div>
                     <div className='icon2'>
-                    <i className="far fa-comment"></i>
+                        <i className="far fa-comment"></i>
                     </div>
                     <div className='icon3'>
-                    <i className="fas fa-arrow-up"></i>
+                        <i className="fas fa-arrow-up"></i>
                     </div>
                 </div>
                 <div className='right-box'>
@@ -66,7 +66,7 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
             </div>
             <span className='likes'>likes</span>
             <span className='count'>{post.like_ids.length}</span>
-            <br/>
+            <br />
             <div className='user-body'>
                 <span className='username-body'>
                     {post.username}
@@ -75,20 +75,26 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                     {post.body}
                 </span>
             </div>
-            <br/>
+            <br />
             <PostCommentIndex
-                post_id={post.id}/>
-            <br/>
+                post_id={post.id}
+                user_id={user.id} 
+                />
+            <br />
             <span className="card-prop-timestamp">
                 {dateUtil(post.created_at)}
             </span>
-            <br/>
+            <br />
             {deleteButton(post, user)}
             <CreateComment
                 key={post.id}
                 post_id={post.id}
-                user_id={user.id}/>
+                user_id={user.id}
+                
+            />
         </li>);
+    
+    
 };
 
 export default PostIndexItem;

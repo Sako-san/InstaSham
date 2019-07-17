@@ -11,9 +11,12 @@
 #
 
 class Comment < ApplicationRecord
-    validates :user_id, :post_id, presence: true
+    validates :comment_body, :user_id, :post_id, presence: true
     
-    belongs_to :user
+    belongs_to :commentor, 
+    foreign_key: :user_id,
+    class_name:  :User
+
     belongs_to :post
     
 end
