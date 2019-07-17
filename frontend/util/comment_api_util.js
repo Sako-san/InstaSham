@@ -19,11 +19,11 @@ export const createComment = (comment) => {
     );
 };
 
-export const deleteComment = (comment) => {
+export const deleteComment = (commentId) => {
     return (
         $.ajax({
             method: 'DELETE',
-            url: `api/comments/${comment.post_id}`
+            url: `api/comments/${commentId}`
         })
     )
 }

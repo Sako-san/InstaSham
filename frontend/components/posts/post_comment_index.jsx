@@ -6,7 +6,7 @@ import { fetchComments, deleteComment } from '../../actions/comment_actions';
 class PostCommentIndex extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
+        console.log(this.props.comments)
     }
 
     componentDidMount() {
@@ -20,13 +20,20 @@ class PostCommentIndex extends React.Component {
     };
 
     render() {
+
+        const deleteButton = this.props.comments.map( comment => {
+            if ( comment.user_id === this.props.user_id && comment.post_id === this.props.post_id)
+            return (
+                <button key={comment.id} onClick={() => this.props.deleteComment(comment.id)}>Delete</button>
+            )
+        });
+
         const comments = this.props.comments.map(comment => {
             if( comment.post_id === this.props.post_id ){
                 return (
                     <li key={comment.id}>
                         <span>{comment.username}</span>
                         <p>{comment.comment_body}</p>
-                        
                     </li>
                 )
             };
@@ -51,7 +58,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     fetchComments: () => dispatch(fetchComments()),
-    deleteComment: (id) => dispatch(deleteComment(id)),
+    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostCommentIndex);

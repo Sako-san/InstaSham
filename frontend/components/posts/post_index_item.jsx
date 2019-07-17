@@ -85,13 +85,12 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                 {dateUtil(post.created_at)}
             </span>
             <br />
-            {deleteButton(post, user)}
             <CreateComment
                 key={post.id}
                 post_id={post.id}
                 user_id={user.id}
-                
             />
+            {deleteButton(post, user)}
         </li>);
     
     

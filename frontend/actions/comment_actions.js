@@ -19,10 +19,10 @@ const receiveComment = (comment) => {
     };
 };
 
-const removeComment = (comment) => {
+const removeComment = (commentId) => {
     return {
         type: REMOVE_COMMENT,
-        comment: comment
+        id: commentId
     };
 };
 
@@ -34,6 +34,6 @@ export const fetchComments = () => (dispatch) => (
     commentAPIUtil.fetchComments().then( (comments) => { return dispatch(receiveAllComments(comments)); })
 );
 
-export const deleteComment = (comment) => (dispatch) => (
-    commentAPIUtil.deleteComment(comment).then( () => { return dispatch(removeComment(comment)); })
+export const deleteComment = (commentId) => (dispatch) => (
+    commentAPIUtil.deleteComment(commentId).then( () => { return dispatch(removeComment(commentId)); })
 );
