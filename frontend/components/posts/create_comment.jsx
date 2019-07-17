@@ -11,6 +11,7 @@ class CreateComment extends React.Component {
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     
     update(field) {
         return (e) => {
@@ -27,6 +28,7 @@ class CreateComment extends React.Component {
         commentData.post_id = this.props.post_id;
 
         this.props.createComment(commentData);
+        
         this.setState({comment_body: ''});
     };
 
@@ -60,8 +62,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    createComment: (comment) => dispatch(createComment(comment)).then( () => fetchComments())
-    
+    createComment: (comment) => dispatch(createComment(comment)),
+    fetchComments: () => dispatch(fetchComments())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateComment);

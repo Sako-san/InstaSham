@@ -6,27 +6,28 @@ import { fetchComments, deleteComment } from '../../actions/comment_actions';
 class PostCommentIndex extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props.comments)
     }
 
     componentDidMount() {
         this.props.fetchComments(); 
     }
     
-    componentDidUpdate(prevProps) {
-        if (this.props.comments.length > prevProps.comments.length) {
-            this.props.fetchComments();
-        };
-    };
+
+    // componentDidUpdate(prevProps) {
+    //     if (this.props.comments.length > prevProps.comments.length) {
+    //         this.props.fetchComments();
+    //     };
+    // };
 
     render() {
 
-        const deleteButton = this.props.comments.map( comment => {
-            if ( comment.user_id === this.props.user_id && comment.post_id === this.props.post_id)
-            return (
-                <button key={comment.id} onClick={() => this.props.deleteComment(comment.id)}>Delete</button>
-            )
-        });
+        const deleteButton = (commentId, userId, commentorId) => {
+            if( userId === commentorId ){
+                return (
+                    <button key={commentId} onClick={() => this.props.deleteComment(commentId)}>Delete</button>
+                )
+            }
+        };
 
         const comments = this.props.comments.map(comment => {
             if( comment.post_id === this.props.post_id ){
@@ -34,6 +35,7 @@ class PostCommentIndex extends React.Component {
                     <li key={comment.id}>
                         <span>{comment.username}</span>
                         <p>{comment.comment_body}</p>
+                        {deleteButton(comment.id, comment.user_id, this.props.user_id )}
                     </li>
                 )
             };
