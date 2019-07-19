@@ -288,10 +288,12 @@ margin-bottom: 15px;
 
 .comment-delete {
     position: relative;
+    background: white;
+    color: lightgray;
+    border: none;
     margin-right: 10px;
-    font:  8px;
-    height: 10px;
-    width: 50px;
+    height: auto;
+    width: 40px;
 }
 
 .comment-box {

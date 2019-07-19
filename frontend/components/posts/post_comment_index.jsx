@@ -17,7 +17,7 @@ class PostCommentIndex extends React.Component {
         const deleteButton = (commentId, userId, commentorId) => {
             if( userId === commentorId ){
                 return (
-                    <button className='comment-delete' key={commentId} onClick={() => this.props.deleteComment(commentId)}>Delete</button>
+                    <button className='comment-delete' key={commentId} onClick={() => this.props.deleteComment(commentId)}>X</button>
                 )
             }
         };
