@@ -42,7 +42,7 @@ class CreateComment extends React.Component {
                     type="text" 
                     value={this.state.comment_body}
                     onChange={this.update('comment_body')}
-                    placeholder='Add Comment...'/>
+                    placeholder='Add a comment...'/>
                     <button className='post-comment'>Post</button>
                 </form>
             </>

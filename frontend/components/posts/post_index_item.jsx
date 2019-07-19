@@ -21,18 +21,30 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                 post_id: post.id,
                 like_id: user.id
             });
-        } else {
+        };
+    };
+
+    const unlikeButton = (post) => {
+        if (!post.like_ids.includes(user.id)) {
             createLike({
                 post_id: post.id,
                 like_id: user.id
-            })
+            });
         };
     };
+
+    const liking = (post) => {
+        if (post.like_ids.includes(user.id)) {
+            return (<i id='like-post' className="fas fa-heart" onClick={() => likeButton(post)}></i>)
+        } else {
+            return (<i className="far fa-heart" onClick={() => unlikeButton(post)}></i>)
+        }
+    }
 
     return (
         <li className="post-card">
             <div className='user-info-card'>
-                <img height='45px' width='45px' className='prof-pic' src="" />
+                <img height='45px' width='45px' className='prof-pic' src={window.currentUserProf}/>
                 <div className='names-card'>
                     <span>
                         {post.username}
@@ -50,7 +62,7 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
             <div className="card-prop-icons">
                 <div className='left-box'>
                     <div className='icon1'>
-                        <i className="far fa-heart" onClick={() => likeButton(post)}></i>
+                        {liking(post)}
                     </div>
                     <div className='icon2'>
                         <i className="far fa-comment"></i>
