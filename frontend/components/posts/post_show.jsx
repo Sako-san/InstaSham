@@ -7,6 +7,8 @@ import { createComment, fetchComments, deleteComment } from '../../actions/comme
 class PostShow extends React.Component {
     constructor(props) {
         super(props);
+
+        console.log(this.props)
     };
 
     render() {
@@ -18,7 +20,12 @@ class PostShow extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    state: state
+   return { 
+       currentUser: state.session.id,
+       users: state.entities.users,
+       posts: (Object.keys(state.entities.posts).map(id => posts[id])),
+       comments: Object.keys(state.entities.comments).map( id => state.entities.comments[id]),
+   }
 };
 
 const mapDispatchToProps = dispatch => ({
