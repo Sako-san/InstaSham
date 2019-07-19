@@ -8,9 +8,12 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
 
     const deleteButton = (post, user) => {
         if (post.author.id === user.id){
-         return (< button className = "card-prop-delete" onClick = {() => deletePost(post.id) }> Delete</button >)
-        }
-    }
+         return (
+             <div className='dots'>
+                 <i className="fas fa-ellipsis-h" onClick={() => deletePost(post.id)}></i>
+             </div>
+         )};
+    };
 
     const likeButton = (post) => {
         if (post.like_ids.includes(user.id)) {
@@ -38,9 +41,7 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                         {post.location}
                     </span>
                 </div>
-                <div className='dots'>
-                    <i className="fas fa-ellipsis-h"></i>
-                </div>
+                {deleteButton(post, user)}
             </div>
             <br />
             <div className="card-img">
@@ -54,9 +55,6 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                     <div className='icon2'>
                         <i className="far fa-comment"></i>
                     </div>
-                    <div className='icon3'>
-                        <i className="fas fa-arrow-up"></i>
-                    </div>
                 </div>
                 <div className='right-box'>
                     <div className='icon4'>
@@ -64,8 +62,10 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                     </div>
                 </div>
             </div>
-            <span className='likes'>likes</span>
-            <span className='count'>{post.like_ids.length}</span>
+            <div className='likes'>
+                <span className='like-count'>{post.like_ids.length}</span>
+                <span className='like'>likes</span>
+            </div>
             <br />
             <div className='user-body'>
                 <span className='username-body'>
@@ -90,7 +90,7 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                 post_id={post.id}
                 user_id={user.id}
             />
-            {deleteButton(post, user)}
+            
         </li>);
     
     

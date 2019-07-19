@@ -11,20 +11,13 @@ class PostCommentIndex extends React.Component {
     componentDidMount() {
         this.props.fetchComments(); 
     }
-    
-
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.comments.length > prevProps.comments.length) {
-    //         this.props.fetchComments();
-    //     };
-    // };
 
     render() {
 
         const deleteButton = (commentId, userId, commentorId) => {
             if( userId === commentorId ){
                 return (
-                    <button key={commentId} onClick={() => this.props.deleteComment(commentId)}>Delete</button>
+                    <button className='comment-delete' key={commentId} onClick={() => this.props.deleteComment(commentId)}>Delete</button>
                 )
             }
         };
@@ -32,9 +25,9 @@ class PostCommentIndex extends React.Component {
         const comments = this.props.comments.map(comment => {
             if( comment.post_id === this.props.post_id ){
                 return (
-                    <li key={comment.id}>
-                        <span>{comment.username}</span>
-                        <p>{comment.comment_body}</p>
+                    <li className='comment-item' key={comment.id}>
+                        <span className='commentor'>{comment.username}</span>
+                        <p className='comment-body'>{comment.comment_body}</p>
                         {deleteButton(comment.id, comment.user_id, this.props.user_id )}
                     </li>
                 )
