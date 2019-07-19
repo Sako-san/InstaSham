@@ -41,6 +41,17 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
         }
     }
 
+    const likeCount = (post) => {
+        if (post.like_ids.length > 0) {
+            return (
+            <>
+                <span className='like-count'>{post.like_ids.length}</span>
+                <span className='like'>likes</span>
+            </>
+            )
+        };
+    };
+
     return (
         <li className="post-card">
             <div className='user-info-card'>
@@ -75,8 +86,7 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                 </div>
             </div>
             <div className='likes'>
-                <span className='like-count'>{post.like_ids.length}</span>
-                <span className='like'>likes</span>
+                {likeCount(post)}
             </div>
             <br />
             <div className='user-body'>
