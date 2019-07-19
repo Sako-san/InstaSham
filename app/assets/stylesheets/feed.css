@@ -218,7 +218,11 @@ background: red;
 
 .card-prop-icons  {
     display: flex;
+<<<<<<< HEAD
     /* margin-left: 15px; */
+=======
+    margin-left: 5px;
+>>>>>>> comments
     align-items: center;
     justify-content: space-around;
     height: 50px;
@@ -237,9 +241,22 @@ background: red;
     width: 20px;
 }
 
-.icon1:active {
-    width: 20px;
+
+#like-post {
     color: red;
+}
+
+.likes {
+    font-weight: bolder;
+    margin-left: 15px;
+}
+
+.like {
+    margin-left: 5px;
+}
+
+.like-count {
+    font-weight: bold;
 }
 
 .icon2 {
@@ -275,5 +292,52 @@ background: red;
     border-bottom: 1px solid lightgray;
     width: 100%;
     height: 500px;
+}
+
+.comment-item {
+    display: flex;
+    margin-left: 15px;
+    height: 18px;
+}
+
+.commentor {
+    font-weight: bold;
+}
+
+.comment-body {
+    margin-left: 5px;
+}
+
+.comment-delete {
+    position: relative;
+    margin-right: 10px;
+    font:  8px;
+    height: 10px;
+    width: 50px;
+}
+
+.comment-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid lightgray;
+    width: auto;
+    height: 57px;
+    margin: 0px;
+}
+
+.create-comment {
+    background-color: white;
+    width: 75%;
+    margin-left: 10px;
+    font-size: 15px;
+    border: none;
+}
+
+.post-comment {
+   background: white;
+   color: rgba(49, 126, 236, 0.8);
+   width: 40px;
+   border: none;
 }
 

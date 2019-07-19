@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { dateUtil } from '../../util/date_post_util';
+import CreateComment from './create_comment';
+import PostCommentIndex from './post_comment_index';
 
 const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => { 
 
     const deleteButton = (post, user) => {
         if (post.author.id === user.id){
-         return (< button className = "card-prop-delete" onClick = {() => deletePost(post.id) }> Delete</button >)
-        }
-    }
+         return (
+             <div className='dots'>
+                 <i className="fas fa-ellipsis-h" onClick={() => deletePost(post.id)}></i>
+             </div>
+         )};
+    };
 
     const likeButton = (post) => {
         if (post.like_ids.includes(user.id)) {
@@ -16,18 +21,30 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                 post_id: post.id,
                 like_id: user.id
             });
-        } else {
+        };
+    };
+
+    const unlikeButton = (post) => {
+        if (!post.like_ids.includes(user.id)) {
             createLike({
                 post_id: post.id,
                 like_id: user.id
-            })
+            });
         };
     };
+
+    const liking = (post) => {
+        if (post.like_ids.includes(user.id)) {
+            return (<i id='like-post' className="fas fa-heart" onClick={() => likeButton(post)}></i>)
+        } else {
+            return (<i className="far fa-heart" onClick={() => unlikeButton(post)}></i>)
+        }
+    }
 
     return (
         <li className="post-card">
             <div className='user-info-card'>
-                <img height='45px' width='45px' className='prof-pic' src="" />
+                <img height='45px' width='45px' className='prof-pic' src={window.currentUserProf}/>
                 <div className='names-card'>
                     <span>
                         {post.username}
@@ -36,17 +53,22 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                         {post.location}
                     </span>
                 </div>
+<<<<<<< HEAD
                 <div className='dots'>
                     {/* <i className="fas fa-ellipsis-h"></i> */}
                 </div>
+=======
+                {deleteButton(post, user)}
+>>>>>>> comments
             </div>
-            <br/>
-            <div className= "card-img">
+            <br />
+            <div className="card-img">
                 <img className='post-image' src={post.photoUrl} />
             </div>
             <div className="card-prop-icons">
                 <div className='left-box'>
                     <div className='icon1'>
+<<<<<<< HEAD
 <<<<<<< HEAD
                     {/* <i className="far fa-heart"></i> */}
 =======
@@ -55,6 +77,12 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                     </div>
                     <div className='icon2'>
                     {/* <i className="far fa-comment"></i> */}
+=======
+                        {liking(post)}
+                    </div>
+                    <div className='icon2'>
+                        <i className="far fa-comment"></i>
+>>>>>>> comments
                     </div>
                     {/* <div className='icon3'> */}
                     {/* <i className="fas fa-arrow-up"></i> */}
@@ -66,9 +94,11 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                     </div>
                 </div>
             </div>
-            <span className='likes'>likes</span>
-            <span className='count'>{post.like_ids.length}</span>
-            <br/>
+            <div className='likes'>
+                <span className='like-count'>{post.like_ids.length}</span>
+                <span className='like'>likes</span>
+            </div>
+            <br />
             <div className='user-body'>
                 <span className='username-body'>
                     {post.username}
@@ -77,13 +107,25 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                     {post.body}
                 </span>
             </div>
-            <br/>
+            <br />
+            <PostCommentIndex
+                post_id={post.id}
+                user_id={user.id} 
+                />
+            <br />
             <span className="card-prop-timestamp">
                 {dateUtil(post.created_at)}
             </span>
-            <br/>
-            {deleteButton(post, user)}
+            <br />
+            <CreateComment
+                key={post.id}
+                post_id={post.id}
+                user_id={user.id}
+            />
+            
         </li>);
+    
+    
 };
 
 export default PostIndexItem;
