@@ -218,11 +218,7 @@ background: red;
 
 .card-prop-icons  {
     display: flex;
-<<<<<<< HEAD
-    /* margin-left: 15px; */
-=======
     margin-left: 5px;
->>>>>>> comments
     align-items: center;
     justify-content: space-around;
     height: 50px;

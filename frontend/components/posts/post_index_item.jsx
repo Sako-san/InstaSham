@@ -53,13 +53,9 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                         {post.location}
                     </span>
                 </div>
-<<<<<<< HEAD
                 <div className='dots'>
                     {/* <i className="fas fa-ellipsis-h"></i> */}
                 </div>
-=======
-                {deleteButton(post, user)}
->>>>>>> comments
             </div>
             <br />
             <div className="card-img">
@@ -68,21 +64,20 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
             <div className="card-prop-icons">
                 <div className='left-box'>
                     <div className='icon1'>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                     {/* <i className="far fa-heart"></i> */}
-=======
+
                         <i className="far fa-heart" onClick={ () => likeButton(post) }></i>
->>>>>>> likes
+
                     </div>
                     <div className='icon2'>
                     {/* <i className="far fa-comment"></i> */}
-=======
+
                         {liking(post)}
                     </div>
                     <div className='icon2'>
                         <i className="far fa-comment"></i>
->>>>>>> comments
+
                     </div>
                     {/* <div className='icon3'> */}
                     {/* <i className="fas fa-arrow-up"></i> */}
