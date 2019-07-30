@@ -292,30 +292,8 @@ margin-bottom: 15px;
     font:  8px;
     height: 10px;
     width: 50px;
-}
-
-.comment-box {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-top: 1px solid lightgray;
-    width: auto;
-    height: 57px;
-    margin: 0px;
-}
-
-.create-comment {
-    background-color: white;
-    width: 75%;
-    margin-left: 10px;
-    font-size: 15px;
+    background: transparent;
     border: none;
-}
-
-.post-comment {
-   background: white;
-   color: rgba(49, 126, 236, 0.8);
-   width: 40px;
-   border: none;
+    color: lightgray;
 }
 

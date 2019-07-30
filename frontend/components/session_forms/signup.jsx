@@ -107,7 +107,7 @@ class SignupSessionForm extends React.Component {
 
                 <div className="switch-form">
                     <div className="account-login">
-                        <span> Have an account? </span>
+                        <span> Have an account? </span>&nbsp;
                         <span> {this.props.navLink} </span>
                     </div>
                 </div>

@@ -76,7 +76,7 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                         {liking(post)}
                     </div>
                     <div className='icon2'>
-                        <i className="far fa-comment"></i>
+                        <Link to={`/postShow/${post.id}`}><i className="far fa-comment"></i></Link>
                     </div>
                 </div>
                 <div className='right-box'>

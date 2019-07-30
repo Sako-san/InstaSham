@@ -56,8 +56,7 @@ const mapStateToProps = (state) => {
         comment: {
             comment_body: '',
             user_id: '',
-            post_id: '',
-            username: ''
+            post_id: ''
         }
     };
 };

@@ -12,7 +12,7 @@ const App = () => (
     <section>
         <Switch>
             <ProtectedRoute exact path="/feed" component={PostIndexContainer} />
-            <ProtectedRoute exact path="/postShow" component={PostShow} />
+            <ProtectedRoute exact path="/postShow/:id" component={PostShow} />
             <ProtectedRoute exact path="/profile" component={UserProfileContainer} />
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />

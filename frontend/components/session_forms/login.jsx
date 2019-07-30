@@ -89,7 +89,7 @@ class LoginSessionForm extends React.Component {
 
             <div className="switch-form">
                 <div className="account-signup">
-                    <span> Don't have an account? </span>
+                    <span> Don't have an account? </span>&nbsp;
                     <span> {this.props.navLink} </span>
                 </div>
             </div>

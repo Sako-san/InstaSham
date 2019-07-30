@@ -1,0 +1,71 @@
+.post-show-card {
+    display: flex;
+    flex-direction: row;
+    margin-top: 125px;
+}
+
+.post-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    background: white;
+    border-radius: 3px;
+    width: 335px;
+}
+
+.poster {
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    height: 55px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    align-items: center;
+}
+
+.poster-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.side-bar-section {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    justify-content: flex-start;
+}
+
+.poster-discussion {
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.poster-discussion > .user {
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.comment-listings {
+    display: flex;
+    height: auto;
+    padding-top: 12px;
+    padding-left: 15px;
+}
+
+.postshow-card-props {
+    justify-self: flex-end;
+    width: inherit;
+    margin-left: 15px;
+}
+
+.user-interactions2 {
+    position: relative;
+    margin-bottom: 0;
+}
