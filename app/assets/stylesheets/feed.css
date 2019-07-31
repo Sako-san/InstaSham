@@ -202,7 +202,6 @@ margin-bottom: 15px;
     display: flex;
     margin-left: 5px;
     align-items: center;
-    justify-content: space-around;
     height: 50px;
     font-size: 25px;
     font-weight: 0;
@@ -210,9 +209,10 @@ margin-bottom: 15px;
 
 .left-box {
     display: flex;
+    justify-self: flex-start;
     flex-direction: row;
     width: 250px;
-   
+    margin-left: 15px;
 }
 
 .icon1 {

@@ -4,6 +4,12 @@
     margin-top: 125px;
 }
 
+.card-image {
+    object-fit: cover;
+    width: 617px;
+    max-height: 617px;
+}
+
 .post-sidebar {
     display: flex;
     flex-direction: column;
@@ -60,9 +66,34 @@
 }
 
 .postshow-card-props {
-    justify-self: flex-end;
-    width: inherit;
+    display: flex;
+    width: 335px; 
+    margin-bottom: 10px;
+}
+
+.show-icon1 {
+    width: 20px;
+}
+
+.show-icon2 {
+    width: 20px;
     margin-left: 15px;
+}
+
+.lower-postcard {
+    display: flex;
+    background: white;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.show-card-prop-timestamp {
+ justify-content: center;
+ margin-top: 15px;
+ margin-left: 15px;
+ color: lightgray;
+ font-size: smaller;
 }
 
 .user-interactions2 {

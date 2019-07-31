@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { dateUtil } from '../../util/date_post_util';
 import { fetchPost,  deletePost } from '../../actions/post_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
 import { createComment, fetchComments, deleteComment } from '../../actions/comment_actions';
@@ -9,6 +10,9 @@ import PostCommentIndex from './post_comment_index';
 class PostShow extends React.Component {
     constructor(props){
         super(props)
+
+        this.likeButton = this.likeButton.bind(this);
+        this.unlikeButton = this.unlikeButton.bind(this);
     }
 
     componentDidMount() {
@@ -16,42 +20,52 @@ class PostShow extends React.Component {
        this.props.fetchComments();
     }
 
-    
+    likeButton() {
+        const {
+            deleteLike,
+            currentUser,
+            post
+        } = this.props;
+
+        if (post.like_ids.includes(currentUser)) {
+            deleteLike({
+                post_id: post.id,
+                like_id: currentUser
+            });
+        }
+    };
+
+    unlikeButton() {
+        const {
+            createLike,
+            currentUser,
+            post
+        } = this.props;
+
+        if (!post.like_ids.includes(currentUser)) {
+            createLike({
+                post_id: post.id,
+                like_id: currentUser
+            });
+        };
+    };
 
     render() {
-        const {post, comments} = this.props;
+        const {post, comments, currentUser} = this.props;
 
         if(!post) {
             return <div>Loading...</div>
         }
 
-        const likeButton = (post) => {
-            if (post.like_ids.includes(this.props.currentUser)) {
-                deleteLike({
-                    post_id: post.id,
-                    like_id: this.props.currentUser
-                });
-            };
-        };
-
-        const unlikeButton = (post) => {
-            if (!post.like_ids.includes(this.props.currentUser)) {
-                createLike({
-                    post_id: post.id,
-                    like_id: this.props.currentUser
-                });
-            };
-        };
-
-        const liking = (post) => {
-            if (post.like_ids.includes(this.props.currentUser)) {
-                return (<i id='like-post' className="fas fa-heart" onClick={() => likeButton(post)}></i>)
+        let liking = (post) => {
+            if (post.like_ids.includes(currentUser)) {
+                return (<i id='like-post' className="fas fa-heart" onClick={this.likeButton}></i>)
             } else {
-                return (<i className="far fa-heart" onClick={() => unlikeButton(post)}></i>)
+                return (<i className="far fa-heart" onClick={this.unlikeButton}></i>)
             }
         }
 
-        const likeCount = (post) => {
+        let likeCount = (post) => {
             if (post.like_ids.length > 0) {
                 return (
                     <>
@@ -94,26 +108,24 @@ class PostShow extends React.Component {
                             post_id={post.id}
                             user_id={this.props.currentUser}/>
                         </ul>
+                        <section className='lower-postcard'>
                         <div className="postshow-card-props">
-                            <div className="card-prop-icons">
                                 <div className='left-box'>
-                                    <div className='icon1'>
+                                    <div className='show-icon1'>
                                         {liking(post)}
                                     </div>
-                                    {/* <div className='icon2'>
-                                        
-                                    </div> */}
-                                </div>
-                                <div className='right-box'>
-                                    <div className='icon4'>
-                                        <i className="far fa-bookmark "></i>
+                                    <div className='show-icon2'>
+                                        <i className="far fa-comment"></i>
                                     </div>
                                 </div>
-                            </div>
-                            <div className='likes'>
-                                {likeCount(post)}
-                            </div>
                         </div>
+                        <div className='likes'>
+                            {likeCount(post)}
+                        </div>
+                        <span className="show-card-prop-timestamp">
+                            {dateUtil(post.created_at)}
+                        </span>
+                        </section>
                     </section>
 
                     <div className='user-interactions2'>

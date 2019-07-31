@@ -80,9 +80,9 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                     </div>
                 </div>
                 <div className='right-box'>
-                    <div className='icon4'>
+                    {/* <div className='icon4'>
                         <i className="far fa-bookmark "></i>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className='likes'>
