@@ -3,17 +3,53 @@ import React from 'react';
 class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
-         
-        console.log(this.props.currentUser)
+
+        // this.userPosts = this.userPosts.bind(this);
     };
 
     componentDidMount() {
-        this.props.fetchPosts();
-    }
+
+        const {
+            fetchComments,
+            fetchPosts,
+            fetchUser
+        } = this.props;
+        
+        fetchPosts();
+        fetchComments();
+
+        if (this.props.match.params.userId) {
+            fetchUser(this.props.match.params.userId);
+        };
+
+    };
+
+
+
+    userPosts() {
+        const {
+            posts,
+            user
+        } = this.props;
+
+        const userPostData = posts.filter( (post, user) => post.author.id === user);
+
+        return userPostData;
+    };
 
     render() {
 
-        const user = this.props.currentUser;
+        
+        const {
+            currentUser,
+            posts,
+            user
+        } = this.props;
+
+        if (!user) {
+            return <div>Loading...</div>
+        }
+
 
         return(
         <>
@@ -24,7 +60,7 @@ class ProfilePage extends React.Component {
         </div>
         <div className='user-profile-block'>
             <div className='profile-interaction-block'>
-                <span>{user.username}</span>
+                <span className='username'>{user.username}</span>
                 <button className='edit-prof'>Edit Profile</button>
                 <button className='settings'></button>
             </div>
@@ -34,7 +70,7 @@ class ProfilePage extends React.Component {
                 <span> following </span>
             </div>
             <div className='bio-block'>
-                <span>{user.name}</span>
+                <span className='user-name'>{user.name}</span>
                 <p>bio area for all that jazzy info</p>
             </div>
         </div> 

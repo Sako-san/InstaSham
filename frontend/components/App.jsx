@@ -14,6 +14,7 @@ const App = () => (
             <ProtectedRoute exact path="/feed" component={PostIndexContainer} />
             <ProtectedRoute exact path="/postShow/:id" component={PostShow} />
             <ProtectedRoute exact path="/profile" component={UserProfileContainer} />
+            <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />
             
