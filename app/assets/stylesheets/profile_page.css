@@ -25,45 +25,62 @@ main {
     align-items: center;
     height: auto;
     width: auto;
-    border: 1px solid lightgray;
     margin: 0 auto;
     margin-top: 100px;
 }
 
-.user-profpic {
-    margin: 50px;
+.user-profpic > img {
+    height: 150px;
+    width: 150px;
+    border-radius: 75%;
+    margin: 40px;
     margin-bottom: 150px;
 }
 .user-profile-block {
     justify-content: space-around;
-    border: 1px solid lightgray;
     margin-left: 45px;
+}
+
+.username {
+    font-size: 30px;
 }
 
 .profile-interaction-block {
     display: flex;
-    justify-content: space-around;
     align-items: center;
     width: 400px;
     height: 75px;
-    border: 1px solid lightgray;
 }
 
 .edit-prof {
-    height: 20px;
-    width: 75px;
+    height: 35px;
+    width: 100px;
+    margin: 0;
+    margin-left: 25px;
+    color: black;
+    background: rgb(249,249,249);
+    border: 1px solid lightgray;
 }
 
 .settings {
-    height: 25px;
-    width: 25px;
+    height: 35px;
+    width: 100px;
+    margin: 0;
+    margin-left: 25px;
+    color: black;
+    background: rgb(249,249,249);
+    border: 1px solid lightgray;
 }
 
 .stats-block {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    border: 1px solid lightgray;
+    margin-bottom: 25px;
+}
+
+.post-count {
+    font-weight: bold;
 }
 
 .bio-block {
@@ -71,13 +88,27 @@ main {
     width: auto;
 }
 
+.bio-block > p {
+    margin-top: 10px;
+}
+.user-name {
+    font-weight: bold;
+}
+
 .user-post-index {
-    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .user-posts {
     display: flex;
-    max-width: 935px;
+    max-width: 975px;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    padding-top: 50px;
+    border-top: 1px solid lightgray;
 }
 
 .post-element {
@@ -150,7 +181,7 @@ main {
 }
 
 .profile-posts:hover {
-    -webkit-filter: brightness(50%);
+    -webkit-filter: brightness(70%);
 }
 
 .post-element:hover .hover-like-button > i {

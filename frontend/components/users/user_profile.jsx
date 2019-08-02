@@ -37,6 +37,8 @@ class ProfilePage extends React.Component {
             return <div>Loading...</div>
         }
 
+        const postCount = posts.length;
+
         const userItems = posts.map( post => {
             if (post.author.id === user.id){
                 return ( <UserProfileItem
@@ -53,16 +55,20 @@ class ProfilePage extends React.Component {
         <main className='main-prof'>
         <section className='user-info-section'>
         <div className='user-profpic'>
-            IMAGE GOES HERE
+            <img src={window.currentUserProf} alt=""/>
         </div>
         <div className='user-profile-block'>
             <div className='profile-interaction-block'>
                 <span className='username'>{user.username}</span>
                 <button className='edit-prof'>Edit Profile</button>
-                <button className='settings'></button>
+                <button className='settings'>Logout</button>
             </div>
             <div className='stats-block'>
-                <span> posts </span>
+                <div>
+                    <span className='post-count'>{postCount}</span>
+                    <span> posts </span>
+                </div>
+                
                 <span> followers </span>
                 <span> following </span>
             </div>

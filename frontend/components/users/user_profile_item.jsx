@@ -12,7 +12,7 @@ const UserProfileItem = ({post, user, comments}) => {
         <li >
             <div className='post-element'>
                 <img className='profile-posts' src={post.photoUrl} alt="" />
-                <div>
+                <div className='div-box'>
                     <Link to={`/postShow/${post.id}`}>
                         <div className='hover-like-button'>
                             <i className="fas fa-heart"></i>
