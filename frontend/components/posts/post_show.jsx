@@ -103,7 +103,6 @@ class PostShow extends React.Component {
                             <span className='post-body'>{post.body}</span>
                         </div>
                         <ul className='comment-listings'>
-                            <img height='32px' width='32px' className='prof-pic' src={window.currentUserProf} />
                             <PostCommentIndex
                             post_id={post.id}
                             user_id={this.props.currentUser}/>

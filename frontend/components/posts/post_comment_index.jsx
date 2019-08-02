@@ -25,11 +25,14 @@ class PostCommentIndex extends React.Component {
         const comments = this.props.comments.map(comment => {
             if( comment.post_id === this.props.post_id ){
                 return (
-                    <li className='comment-item' key={comment.id}>
-                        <span className='commentor'>{comment.username}</span>
-                        <p className='comment-body'>{comment.comment_body}</p>
-                        {deleteButton(comment.id, comment.user_id, this.props.user_id )}
-                    </li>
+                    <div className='comment-index'>
+                        {/* <img height='32px' width='32px' className='prof-pic' src={window.currentUserProf} /> */}
+                        <li className='comment-item' key={comment.id}>
+                            <span className='commentor'>{comment.username}</span>
+                            <p className='comment-body'>{comment.comment_body}</p>
+                            {deleteButton(comment.id, comment.user_id, this.props.user_id )}
+                        </li>
+                    </div>
                 )
             };
 

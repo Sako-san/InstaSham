@@ -59,9 +59,11 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                     <img height='45px' width='45px' className='prof-pic' src={window.currentUserProf}/>
                 </Link>
                 <div className='names-card'>
-                    <span>
-                        {post.username}
-                    </span>
+                    <Link className='user-profile-link' to={`/users/${post.author.id}`}>
+                        <span>
+                            {post.username}
+                        </span>
+                    </Link>
                     <span className='location'>
                         {post.location}
                     </span>
@@ -78,7 +80,7 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
                         {liking(post)}
                     </div>
                     <div className='icon2'>
-                        <Link to={`/postShow/${post.id}`}><i className="far fa-comment"></i></Link>
+                        <Link className='link' to={`/postShow/${post.id}`}><i className="far fa-comment"></i></Link>
                     </div>
                 </div>
                 <div className='right-box'>

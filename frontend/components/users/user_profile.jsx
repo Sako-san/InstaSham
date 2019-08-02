@@ -16,16 +16,26 @@ class ProfilePage extends React.Component {
         
         fetchPosts();
         fetchComments();
-
+        
         if (this.props.match.params.userId) {
             fetchUser(this.props.match.params.userId);
         };
 
     };
 
+    componentDidUpdate(prevProps) {
+
+        const {
+            fetchUser
+        } = this.props;
+
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
+            fetchUser(this.props.match.params.userId);
+        };
+
+    };
     render() {
 
-        
         const {
             currentUser,
             posts,
@@ -33,7 +43,7 @@ class ProfilePage extends React.Component {
             comments
         } = this.props;
 
-        if (!posts) {
+        if (!posts || !user) {
             return <div>Loading...</div>
         }
 
