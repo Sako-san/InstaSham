@@ -75,5 +75,102 @@ main {
     margin-top: 50px;
 }
 
+.user-posts {
+    display: flex;
+    max-width: 935px;
+}
+
+.post-element {
+    display: flex;
+    position: relative;
+    height: 293px;
+    width: 293px;
+    margin: 14px;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-element > .div-box{
+    display: flex;
+    width: 100px;
+    
+}
+
+.profile-posts {
+    position: absolute;
+    height: 293px;
+    width: 293px;
+    object-fit: cover;
+}
+
+.hover-like-button {
+    display: flex;
+    width: 40px;
+    justify-content: center;
+}
+
+.hover-comment-button {
+    display: flex;
+    width: 40px;
+    justify-content: center;
+}
+
+.hover-like-button > i {
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    left: 35%;
+    color: white;
+    visibility: hidden;
+}
+
+.post-likes {
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    left: 45%;
+    visibility: hidden;
+}
+
+.hover-comment-button > i {
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    right: 35%;
+    color: white;
+    visibility: hidden;
+}
+
+.post-comments {
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    right: 28%;
+    visibility: hidden;
+}
+
+.profile-posts:hover {
+    -webkit-filter: brightness(50%);
+}
+
+.post-element:hover .hover-like-button > i {
+    visibility: visible;
+}
+
+.post-element:hover .hover-like-button > span {
+    visibility: visible;
+}
+
+.post-element:hover .hover-comment-button > i {  
+    visibility: visible;
+}
+
+.post-element:hover .hover-comment-button > span {
+    visibility: visible;
+}
+
+
+
+
 
 

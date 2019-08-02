@@ -1,10 +1,9 @@
 import React from 'react';
+import UserProfileItem from './user_profile_item';
 
 class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
-
-        // this.userPosts = this.userPosts.bind(this);
     };
 
     componentDidMount() {
@@ -24,32 +23,30 @@ class ProfilePage extends React.Component {
 
     };
 
-
-
-    userPosts() {
-        const {
-            posts,
-            user
-        } = this.props;
-
-        const userPostData = posts.filter( (post, user) => post.author.id === user);
-
-        return userPostData;
-    };
-
     render() {
 
         
         const {
             currentUser,
             posts,
-            user
+            user,
+            comments
         } = this.props;
 
-        if (!user) {
+        if (!posts) {
             return <div>Loading...</div>
         }
 
+        const userItems = posts.map( post => {
+            if (post.author.id === user.id){
+                return ( <UserProfileItem
+                    key= {post.id}
+                    post= {post}
+                    user= {user}
+                    comments= {comments}
+                />)
+            }
+        })
 
         return(
         <>
@@ -76,7 +73,9 @@ class ProfilePage extends React.Component {
         </div> 
         </section>
         <section className='user-post-index'>
-            <div>USER POSTS</div>
+                <ul className="user-posts">
+                   {userItems} 
+                </ul>
         </section>
         </main>
         </>
