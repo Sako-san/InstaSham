@@ -1,0 +1,59 @@
+.nav {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white;
+    font-family: 'Grand Hotel', cursive;
+    font-size: 30px;
+    color: rgba(29,29,29, 0.9);
+    height: 76px;
+    font-weight: 1;
+    border-bottom: 1px solid lightgray;
+    align-items: center;
+}
+
+.insta-cam {
+    display: flex;
+    margin-left: 50px;
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+}
+
+.nav-bar-cam {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-bar-sham {
+    text-decoration: none;
+    color: black;
+    border-left: 0.5px solid black;
+    padding-left: 20px;
+}
+
+.insta-cam:active {
+    margin-left: 50px;
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    opacity: 0.5;
+}
+
+.nav-bar-cam:active {
+
+}
+
+.nav-bar-sham:active {
+    text-decoration: none;
+    color: black;
+    border-left: 1px solid black;
+    padding-left: 20px;
+    
+}
+

@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import merge from 'lodash';
 import PostIndexItem from './post_index_item';
+import NavBar from '../nav_bar';
 
 
 class PostIndex extends React.Component {
@@ -24,12 +25,7 @@ class PostIndex extends React.Component {
 
         return (
             <>
-            <nav className="nav">
-                <div className='insta-cam' >
-                    <i className="fab fa-instagram"></i>
-                </div>
-                <span> Instasham</span>
-            </nav>
+            <NavBar/>
             <ul className='post-index-ul' >
                 {posts}
             </ul>

@@ -6,6 +6,7 @@ import { createLike, deleteLike } from '../../actions/like_actions';
 import { createComment, fetchComments, deleteComment } from '../../actions/comment_actions';
 import CreateCommentContainer from './create_comment';
 import PostCommentIndex from './post_comment_index';
+import NavBar from '../nav_bar';
 
 class PostShow extends React.Component {
     constructor(props){
@@ -78,13 +79,7 @@ class PostShow extends React.Component {
 
         return (
             <>
-            <nav className="nav">
-                <div className='insta-cam' >
-                    <i className="fab fa-instagram"></i>
-                </div>
-                <span> Instasham</span>
-            </nav>
-
+            <NavBar/>
             <div className='post-show-card' >
                 <img className='card-image' src={post.photoUrl} alt='Post Show Image'/>
                 <section className='post-sidebar'>

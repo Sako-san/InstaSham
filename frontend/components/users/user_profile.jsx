@@ -1,5 +1,6 @@
 import React from 'react';
 import UserProfileItem from './user_profile_item';
+import NavBar from '../nav_bar';
 
 class ProfilePage extends React.Component {
     constructor(props) {
@@ -62,6 +63,7 @@ class ProfilePage extends React.Component {
 
         return(
         <>
+        <NavBar/>
         <main className='main-prof'>
         <section className='user-info-section'>
         <div className='user-profpic'>
