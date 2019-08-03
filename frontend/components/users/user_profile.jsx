@@ -5,6 +5,8 @@ import NavBar from '../nav_bar';
 class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
+
+        this.postCount = this.postCount.bind(this);
     };
 
     componentDidMount() {
@@ -35,6 +37,11 @@ class ProfilePage extends React.Component {
         };
 
     };
+
+    postCount( posts, user) {
+       return posts.filter( post => post.author.id === user.id).length
+    }
+
     render() {
 
         const {
@@ -48,8 +55,6 @@ class ProfilePage extends React.Component {
             return <div>Loading...</div>
         }
 
-        const postCount = posts.length;
-
         const userItems = posts.map( post => {
             if (post.author.id === user.id){
                 return ( <UserProfileItem
@@ -58,8 +63,8 @@ class ProfilePage extends React.Component {
                     user= {user}
                     comments= {comments}
                 />)
-            }
-        })
+            };
+        });
 
         return(
         <>
@@ -77,7 +82,7 @@ class ProfilePage extends React.Component {
             </div>
             <div className='stats-block'>
                 <div>
-                    <span className='post-count'>{postCount}</span>
+                                    <span className='post-count'>{this.postCount(posts, user)}</span>
                     <span> posts </span>
                 </div>
                 
