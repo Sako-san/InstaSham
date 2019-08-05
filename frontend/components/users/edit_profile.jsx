@@ -94,35 +94,48 @@ class EditUserProfile extends React.Component {
                     </div>
 
                     <div className='edits'>
-                        <label>Name</label>
-                        <input 
-                            type="text" 
-                            value={this.state.name} 
-                            onChange={this.update('name')}
-                        />
+                        <div className='edit-container'>
+                            <label>Name</label>
+                            <input 
+                                className='edit-info'
+                                type="text" 
+                                value={this.state.name} 
+                                onChange={this.update('name')}
+                            />
+                        </div>
    
-                        <label>Username</label>
-                        <input 
-                            type="text" 
-                            value={this.state.username} 
-                            onChange={this.update('username')}
-                        />
-        
-                        <label>Bio</label>
-                        <input 
-                            type="textarea" 
-                            value={this.state.bio} 
-                            onChange={this.update('bio')}
-                        />
-             
-                        <label>Email</label>
-                        <input 
-                            type="text" 
-                            value={this.state.email} 
-                            onChange={this.update('email')}
-                        />
+                        <div className='edit-container'> 
+                            <label>Username</label>
+                            <input 
+                                className='edit-info'
+                                type="text" 
+                                value={this.state.username} 
+                                onChange={this.update('username')}
+                            />
+                        </div>
 
-                        <input type="submit" className='submit' value='Submit'/>
+                        <div className='edit-container'>
+                            <label>Bio</label>
+                            <textarea cols="30" rows="10"
+                                className='edit-info'
+                                value={this.state.bio} 
+                                onChange={this.update('bio')}>
+                            </textarea>
+                        </div>
+             
+                        <div className='edit-container'>
+                            <label>Email</label>
+                            <input 
+                                className='edit-info'
+                                type="text" 
+                                value={this.state.email} 
+                                onChange={this.update('email')}
+                            />
+                        </div>
+                        <div className='edit-container'>
+                            <input type="submit" className='submit' value='Submit' />
+                        </div>
+                        
                     </div>
                 </form>
             </section>

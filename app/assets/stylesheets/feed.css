@@ -73,8 +73,15 @@ main {
     margin-top: 75px;
 }
 
+.form-box-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
 .create-post-head {
     margin-top: 15px;
+    height: 25px;
     text-align: center;
 }
 
@@ -83,12 +90,19 @@ main {
     justify-content: space-around;
     align-items: baseline;
     background: white;
-    min-height: 325px;
+    min-height: 425px;
     width: 300px;
     margin-top: 150px;
     border: 1px solid lightgray;
     border-radius: 3px;
     position: fixed;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
 }
 
 .upload-button {
@@ -103,6 +117,7 @@ main {
      height: 38px;
      margin: 0 auto;
      margin-top: 20px;
+     margin-bottom: 15px;
      font-weight: bold;
      font-size: 14px;
      border-radius: 3px;
@@ -113,8 +128,8 @@ main {
  }
 
  .thumbnail {
-    margin-top: 50px;
-    margin-left: 30px;
+    object-fit: cover;
+    margin: 0 auto;
  }
 
  textarea {

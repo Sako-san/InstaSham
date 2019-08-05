@@ -10,18 +10,36 @@
 .edit-form {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    margin: 25px;
+    height: auto;
 }
 
 .edit-pic {
     height: 38px;
     width: 38px;
     border-radius: 75%;
+    margin-left: 35px;
 }
 
 .prof-pic-block {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.edit-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 400px;
+    margin-bottom: 25px;
+    justify-content: 
+}
+
+.edit-container > label {
+    display: flex;
+    justify-content: flex-end;
+    width: 75px;
 }
 
 .change-pic{
@@ -40,7 +58,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 10px;
+    
+    margin-left: 35px;
 }
 
 .edits {
@@ -51,5 +70,17 @@
 }
 
 .edits > label {
+    display: flex;
+    align-items: center;
     margin: 20px;
 }
+
+.edit-info {
+    background: white;
+}
+
+.edit-container > textarea {
+    margin-left: 30px;
+}
+
+

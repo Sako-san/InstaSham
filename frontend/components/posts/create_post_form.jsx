@@ -61,8 +61,8 @@ class CreatePostForm extends React.Component {
          : null;
 
         return (
-            <div >
-                <h3 className='create-post-head' >{this.props.formType}</h3>
+                <div className='form-box-container'>
+                <h3 className='create-post-head' >Create Post</h3>
                 <form className='form-container' onSubmit={this.handleSubmit}>
                         <br/>
                     <input
@@ -71,6 +71,7 @@ class CreatePostForm extends React.Component {
                             onChange={this.update('location')}
                             placeholder='Add Location' />
                         <br/>
+                        <div className='thumbnail'> {thumbnail} </div> 
                         <label className='submit' onChange={this.handleFile}>
                             <span>Upload Photo</span> 
                             <input className='upload-button' type="file" accept='image/*'/>
@@ -83,7 +84,7 @@ class CreatePostForm extends React.Component {
                         <br/>
                     <input className='submit' type="submit" value={this.props.formType} />
 
-                    <div className='thumbnail'> {thumbnail} </div> 
+                    
                 </form>
             </div>
         );
