@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import UserProfileItem from './user_profile_item';
 import NavBar from '../nav_bar';
 
@@ -7,6 +8,7 @@ class ProfilePage extends React.Component {
         super(props);
 
         this.postCount = this.postCount.bind(this);
+        this.userDash = this.userDash.bind(this);
     };
 
     componentDidMount() {
@@ -42,6 +44,25 @@ class ProfilePage extends React.Component {
        return posts.filter( post => post.author.id === user.id).length
     }
 
+    userDash(currentUser, user) {
+        if (currentUser.id === user.id) {
+            return (
+                <div className='profile-interaction-block'>
+                    <span className='username'>{user.username}</span>
+                    <Link className='edit-prof-link' to='/accounts/edit' ><button className='edit-prof'>Edit Profile</button></Link>
+                    <button className='settings'>Logout</button>
+                </div>
+            );
+        } else {
+            return (
+                <div className='profile-interaction-block'>
+                    <span className='username'>{user.username}</span>
+                    <button className='settings'>Follow/Unfollow</button>
+                </div>
+            );
+        };
+    };
+
     render() {
 
         const {
@@ -72,17 +93,13 @@ class ProfilePage extends React.Component {
         <main className='main-prof'>
         <section className='user-info-section'>
         <div className='user-profpic'>
-            <img src={window.currentUserProf} alt=""/>
+            <img src={user.photoUrl} alt=""/>
         </div>
         <div className='user-profile-block'>
-            <div className='profile-interaction-block'>
-                <span className='username'>{user.username}</span>
-                <button className='edit-prof'>Edit Profile</button>
-                <button className='settings'>Logout</button>
-            </div>
+            <div>{this.userDash(currentUser, user)}</div>
             <div className='stats-block'>
                 <div>
-                                    <span className='post-count'>{this.postCount(posts, user)}</span>
+                    <span className='post-count'>{this.postCount(posts, user)}</span>
                     <span> posts </span>
                 </div>
                 

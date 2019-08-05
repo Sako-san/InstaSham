@@ -1,0 +1,43 @@
+.edit-section {
+    display: flex;
+    margin-top: 150px;
+    height: 550px;
+    width: 75%;
+    border: 1px solid lightgray;
+    background: white;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 25px;
+}
+
+.edit-pic {
+    height: 38px;
+    width: 38px;
+    border-radius: 75%;
+}
+
+.prof-pic-block {
+    display: flex;
+}
+
+.name-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.edits {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 60px;
+}
+
+.edits > label {
+    margin: 20px;
+}

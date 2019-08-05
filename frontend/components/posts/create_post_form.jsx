@@ -17,6 +17,7 @@ class CreatePostForm extends React.Component {
     componentDidMount() {
         this.props.fetchPosts();
     }
+    
     update(field) {
         return (e) => {
             this.setState({ [field]: e.target.value });

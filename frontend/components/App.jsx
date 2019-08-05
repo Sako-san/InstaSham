@@ -7,6 +7,7 @@ import SplashContainer from './splash/splash_container';
 import PostIndexContainer from './posts/post_index_container';
 import UserProfileContainer from './users/user_profile_container';
 import PostShow from './posts/post_show';
+import EditUserProfile from '../components/users/edit_profile';
 
 const App = () => (
     <section>
@@ -15,6 +16,7 @@ const App = () => (
             <ProtectedRoute exact path="/postShow/:id" component={PostShow} />
             <ProtectedRoute exact path="/profile" component={UserProfileContainer} />
             <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
+            <ProtectedRoute exact path="/accounts/edit" component={EditUserProfile} />
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />
             

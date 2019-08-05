@@ -56,7 +56,7 @@ const PostIndexItem = ({ post, deletePost, user, createLike, deleteLike}) => {
         <li className="post-card">
             <div className='user-info-card'>
                 <Link to={`/users/${post.author.id}`}>
-                    <img height='45px' width='45px' className='prof-pic' src={window.currentUserProf}/>
+                    <img height='45px' width='45px' className='prof-pic' src={user.photoUrl}/>
                 </Link>
                 <div className='names-card'>
                     <Link className='user-profile-link' to={`/users/${post.author.id}`}>
