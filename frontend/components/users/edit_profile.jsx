@@ -78,7 +78,9 @@ class EditUserProfile extends React.Component {
 
         return(
         <>
-            <NavBar/>
+            <NavBar
+                currentUser={currentUser.id}
+            />
             <section className='edit-section'>
                 <form className='edit-form' onSubmit={this.handleSubmit}> 
                     <div className='prof-pic-block'>

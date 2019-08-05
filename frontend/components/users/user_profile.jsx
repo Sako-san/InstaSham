@@ -89,7 +89,9 @@ class ProfilePage extends React.Component {
 
         return(
         <>
-        <NavBar/>
+        <NavBar
+            currentUser={currentUser.id}
+        />
         <main className='main-prof'>
         <section className='user-info-section'>
         <div className='user-profpic'>

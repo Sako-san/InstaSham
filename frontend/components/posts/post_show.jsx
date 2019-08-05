@@ -80,7 +80,9 @@ class PostShow extends React.Component {
 
         return (
             <>
-            <NavBar/>
+            <NavBar
+                currentUser={currentUser}
+            />
             <div className='post-show-card' >
                 <img className='card-image' src={post.photoUrl} alt='Post Show Image'/>
                 <section className='post-sidebar'>

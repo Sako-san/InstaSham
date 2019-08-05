@@ -34,7 +34,8 @@ class PostIndex extends React.Component {
 
         return (
             <>
-            <NavBar/>
+            <NavBar
+                currentUser={this.props.currentUser.id}/>
             <ul className='post-index-ul' >
                 {posts}
             </ul>

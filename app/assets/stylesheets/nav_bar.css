@@ -13,6 +13,7 @@
     font-weight: 1;
     border-bottom: 1px solid lightgray;
     align-items: center;
+    justify-content: space-between;
 }
 
 .insta-cam {
@@ -45,15 +46,17 @@
     opacity: 0.5;
 }
 
-.nav-bar-cam:active {
-
-}
-
 .nav-bar-sham:active {
     text-decoration: none;
     color: black;
     border-left: 1px solid black;
     padding-left: 20px;
     
+}
+
+.profile-link-icon {
+    margin-right: 125px;
+    text-decoration: none;
+    color: black;
 }
 
