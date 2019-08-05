@@ -41,7 +41,7 @@ class ProfilePage extends React.Component {
     };
 
     postCount( posts, user) {
-       return posts.filter( post => post.author.id === user.id).length
+       return posts.filter( post => post.authorId === user.id).length
     }
 
     userDash(currentUser, user) {
@@ -77,7 +77,7 @@ class ProfilePage extends React.Component {
         }
 
         const userItems = posts.map( post => {
-            if (post.author.id === user.id){
+            if (post.authorId === user.id){
                 return ( <UserProfileItem
                     key= {post.id}
                     post= {post}

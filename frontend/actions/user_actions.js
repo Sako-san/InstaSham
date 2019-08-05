@@ -16,7 +16,7 @@ export const updateUser = (user) => dispatch => {
 }
 
 
-export const receiveAllUsers = () => ({
+export const receiveAllUsers = (users) => ({
     type: RECEIVE_ALL_USERS,
     users
 });

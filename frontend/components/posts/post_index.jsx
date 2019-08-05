@@ -6,16 +6,25 @@ import NavBar from '../nav_bar';
 
 
 class PostIndex extends React.Component {
+    constructor(props){
+        super(props)
+    }
+
     componentDidMount() {
         this.props.fetchPosts();
+        this.props.fetchAllUsers();
     }
 
     render() {
+
+        
+        
         const posts = this.props.posts.map( post => {
             return ( <PostIndexItem
             key= {post.id}
             post= {post}
-            user = {this.props.currentUser}
+            currentUser = {this.props.currentUser}
+            user={this.props.users[post.authorId]}
             deletePost={this.props.deletePost}
             createLike={this.props.createLike}
             deleteLike={this.props.deleteLike} 

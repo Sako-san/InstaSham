@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { dateUtil } from '../../util/date_post_util';
+import { fetchAllUsers } from '../../actions/user_actions';
 import { fetchPost,  deletePost } from '../../actions/post_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
 import { createComment, fetchComments, deleteComment } from '../../actions/comment_actions';
@@ -52,7 +53,7 @@ class PostShow extends React.Component {
     };
 
     render() {
-        const {post, comments, currentUser} = this.props;
+        const {post, comments, currentUser, users} = this.props;
 
         if(!post) {
             return <div>Loading...</div>
@@ -84,16 +85,16 @@ class PostShow extends React.Component {
                 <img className='card-image' src={post.photoUrl} alt='Post Show Image'/>
                 <section className='post-sidebar'>
                     <div className='poster'>
-                            <img height='32px' width='32px' className='prof-pic' src={post.author.photoUrl} />
+                            <img height='32px' width='32px' className='prof-pic' src={users[post.authorId].photoUrl} />
                             <div className='poster-info'>
-                                <span>{post.username}</span>
+                                <span>{users[post.authorId].username}</span>
                                 <span className='location'>{post.location}</span>
                             </div>
                     </div>
 
                     <section className='side-bar-section'>
                         <div className='poster-discussion'>
-                                <img height='32px' width='32px' className='prof-pic' src={post.author.photoUrl}/>
+                                <img height='32px' width='32px' className='prof-pic' src={users[post.authorId].photoUrl}/>
                             <span className='user'>{post.username}</span>
                             <span className='post-body'>{post.body}</span>
                         </div>
@@ -139,6 +140,7 @@ const mapStateToProps = (state, ownProps) => {
 
     return { 
         currentUser: state.session.id,
+        users: state.entities.users,
         post: state.entities.posts[ownProps.match.params.id]
     };
    
@@ -146,6 +148,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+    fetchAllUsers: () => dispatch(fetchAllUsers()),
     fetchPost: (id) => dispatch(fetchPost(id)),
     deletePost: (id) => dispatch(deletePost(id)),
 

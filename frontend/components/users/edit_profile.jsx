@@ -83,11 +83,11 @@ class EditUserProfile extends React.Component {
                 <form className='edit-form' onSubmit={this.handleSubmit}> 
                     <div className='prof-pic-block'>
                         {preview}
-                        <div>
-                            <input type="file" onChange={this.handleFile} />
-                        </div>
                         <div className='name-box'>
                             <span>{currentUser.username}</span>
+                                <label className='change-pic' onChange={this.handleFile}> Change Profile Photo
+                                    <input className='prof-pic-edit' type="file" accept='image/*' />
+                                </label>
                         </div>
                     </div>
 
@@ -108,7 +108,7 @@ class EditUserProfile extends React.Component {
         
                         <label>Bio</label>
                         <input 
-                            type="text" 
+                            type="textarea" 
                             value={this.state.bio} 
                             onChange={this.update('bio')}
                         />

@@ -24,6 +24,18 @@
     display: flex;
 }
 
+.change-pic{
+    color: blue;
+}
+
+.prof-pic-edit {
+    display: none;
+}
+
+.change-pic:hover {
+    cursor: pointer;
+}
+
 .name-box {
     display: flex;
     flex-direction: column;

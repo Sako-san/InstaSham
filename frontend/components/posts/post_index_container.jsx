@@ -1,16 +1,19 @@
 import { connect } from 'react-redux';
+import {fetchAllUsers} from '../../actions/user_actions';
 import { fetchPosts, deletePost } from '../../actions/post_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
 import { logout } from '../../actions/session_actions';
 import PostIndex from './post_index';
 
-const mapStateToProps = ({ session, entities: {users, posts}}) => ({
-    currentUser: users[session.id],
-    users: users,
-    posts: (Object.keys(posts).map(id => posts[id])).reverse(),
+const mapStateToProps = (state) => ({
+    currentUser: state.entities.users[state.session.id],
+    users: state.entities.users,
+    posts: (Object.keys(state.entities.posts).map(id => state.entities.posts[id])).reverse(),
 });
 
 const mapDispatchToProps = dispatch => ({
+    fetchAllUsers: () => dispatch(fetchAllUsers()),
+
     fetchPosts: () => dispatch(fetchPosts()),
     deletePost: (id) => dispatch(deletePost(id)),
 
