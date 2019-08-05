@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import { dateUtil } from '../../util/date_post_util';
 import { fetchAllUsers } from '../../actions/user_actions';
 import { fetchPost,  deletePost } from '../../actions/post_actions';
@@ -18,8 +19,10 @@ class PostShow extends React.Component {
     }
 
     componentDidMount() {
+       this.props.fetchAllUsers();
        this.props.fetchPost(this.props.match.params.id);
        this.props.fetchComments();
+       
     }
 
     likeButton() {
@@ -55,7 +58,7 @@ class PostShow extends React.Component {
     render() {
         const {post, comments, currentUser, users} = this.props;
 
-        if(!post) {
+        if(!post || !users) {
             return <div>Loading...</div>
         }
 
@@ -87,11 +90,13 @@ class PostShow extends React.Component {
                 <img className='card-image' src={post.photoUrl} alt='Post Show Image'/>
                 <section className='post-sidebar'>
                     <div className='poster'>
+                      
                             <img height='32px' width='32px' className='prof-pic' src={users[post.authorId].photoUrl} />
                             <div className='poster-info'>
                                 <span>{users[post.authorId].username}</span>
                                 <span className='location'>{post.location}</span>
                             </div>
+                      
                     </div>
 
                     <section className='side-bar-section'>
