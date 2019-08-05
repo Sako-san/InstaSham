@@ -108,7 +108,7 @@ class ProfilePage extends React.Component {
             </div>
             <div className='bio-block'>
                 <span className='user-name'>{user.name}</span>
-                <p>bio area for all that jazzy info</p>
+                <p>{user.bio}</p>
             </div>
         </div> 
         </section>

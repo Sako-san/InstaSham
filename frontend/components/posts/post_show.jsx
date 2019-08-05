@@ -84,7 +84,7 @@ class PostShow extends React.Component {
                 <img className='card-image' src={post.photoUrl} alt='Post Show Image'/>
                 <section className='post-sidebar'>
                     <div className='poster'>
-                            <img height='32px' width='32px' className='prof-pic' src={user.photoUrl} />
+                            <img height='32px' width='32px' className='prof-pic' src={post.author.photoUrl} />
                             <div className='poster-info'>
                                 <span>{post.username}</span>
                                 <span className='location'>{post.location}</span>
@@ -93,7 +93,7 @@ class PostShow extends React.Component {
 
                     <section className='side-bar-section'>
                         <div className='poster-discussion'>
-                                <img height='32px' width='32px' className='prof-pic' src={user.photoUrl}/>
+                                <img height='32px' width='32px' className='prof-pic' src={post.author.photoUrl}/>
                             <span className='user'>{post.username}</span>
                             <span className='post-body'>{post.body}</span>
                         </div>

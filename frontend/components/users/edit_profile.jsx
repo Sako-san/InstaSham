@@ -8,10 +8,18 @@ class EditUserProfile extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = this.props.currentUser;
+        this.state = {
+            name: this.props.currentUser.name,
+            username: this.props.currentUser.username,
+            bio: this.props.currentUser.bio,
+            email: this.props.currentUser.email,
+            photoFile: null,
+            photoUrl: this.props.currentUser.photoUrl,
+        };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
+        this.handleFile = this.handleFile.bind(this);
     }
 
     update(field) {
@@ -20,22 +28,53 @@ class EditUserProfile extends React.Component {
         };
     };
 
+    handleFile(e) {
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+
+        fileReader.onloadend = () => {
+            this.setState({
+                photoFile: file,
+                photoUrl: fileReader.result
+            });
+        };
+
+        if (file) fileReader.readAsDataURL(file);
+    }
+
     handleSubmit(e) {
         e.preventDefault();
 
-        const formData = new FormData();
-        formData.append('currentUser[name]', this.state.name);
-        formData.append('currentUser[username]', this.state.username);
-        formData.append('currentUser[bio]', this.state.bio);
-        formData.append('currentUser[email]', this.state.email);
+        const {currentUser, updateUser} = this.props
 
-        this.props.updateUser(formData);
-        this.setState({ name: '', username: '', bio: '', email: ''})
+        const formData = new FormData();
+        if (this.state.photoFile) {
+            formData.append("user[prof_pic]", this.state.photoFile);
+        }
+        formData.append('user[name]', this.state.name);
+        formData.append('user[username]', this.state.username);
+        formData.append('user[bio]', this.state.bio);
+        formData.append('user[email]', this.state.email);
+
+        updateUser({formData, id: currentUser.id});
     };
 
     render() {
 
         const {currentUser} = this.props;
+
+        let preview;
+        if(this.state.photoUrl) {
+            preview = <img className='edit-pic' src={this.state.photoUrl} alt="user-pic" onChange={this.handleFile} />
+        } else {
+            preview = preview = <img className='edit-pic' src={currentUser.photoUrl} alt="user-pic" onChange={this.handleFile} />
+        }
+
+        if (this.state.bio !== null) {
+            this.state.bio = this.state.bio;
+        } else {
+            this.state.bio = '';
+        };
 
         return(
         <>
@@ -43,10 +82,12 @@ class EditUserProfile extends React.Component {
             <section className='edit-section'>
                 <form className='edit-form' onSubmit={this.handleSubmit}> 
                     <div className='prof-pic-block'>
-                        <img className='edit-pic' src={currentUser.photoUrl} alt="user-pic" />
+                        {preview}
+                        <div>
+                            <input type="file" onChange={this.handleFile} />
+                        </div>
                         <div className='name-box'>
                             <span>{currentUser.username}</span>
-                            <span><link rel="stylesheet" href="" />Change Profile Photo</span>
                         </div>
                     </div>
 
@@ -96,7 +137,7 @@ const mapStateToProps = ( state ) => {
 const mapDispatchToProps = (dispatch) => ({
     fetchUser: (userId) => dispatch(fetchuser(userId)),
 
-    updateUser: (user) => dispatch(updateUser(user))
+    updateUser: (formData, userId) => dispatch(updateUser(formData, userId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditUserProfile);
