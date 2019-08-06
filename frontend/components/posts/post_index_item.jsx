@@ -19,7 +19,7 @@ const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, delete
         if (post.authorId === currentUser.id){
          return (
              <div className='dots'>
-                 <i className="fas fa-ellipsis-h" onClick={() => deletePost(post.id)}></i>
+                 {/* <i className="fas fa-ellipsis-h" onClick={() => deletePost(post.id)}></i> */}
              </div>
          )};
     };

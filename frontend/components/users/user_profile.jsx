@@ -50,14 +50,14 @@ class ProfilePage extends React.Component {
                 <div className='profile-interaction-block'>
                     <span className='username'>{user.username}</span>
                     <Link className='edit-prof-link' to='/accounts/edit' ><button className='edit-prof'>Edit Profile</button></Link>
-                    <button className='settings'>Logout</button>
+                    {/* <button className='settings'>Logout</button> */}
                 </div>
             );
         } else {
             return (
                 <div className='profile-interaction-block'>
                     <span className='username'>{user.username}</span>
-                    <button className='settings'>Follow/Unfollow</button>
+                    {/* <button className='settings'>Follow/Unfollow</button> */}
                 </div>
             );
         };
