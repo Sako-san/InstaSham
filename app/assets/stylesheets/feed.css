@@ -291,11 +291,33 @@ margin-bottom: 15px;
 
 .comment-delete {
     position: relative;
+    background: white;
+    color: lightgray;
+    border: none;
     margin-right: 10px;
     font:  8px;
     height: 10px;
     width: 50px;
     background: transparent;
+    height: auto;
+    width: 40px;
+}
+
+.comment-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid lightgray;
+    width: auto;
+    height: 57px;
+    margin: 0px;
+}
+
+.create-comment {
+    background-color: white;
+    width: 75%;
+    margin-left: 10px;
+    font-size: 15px;
     border: none;
     color: lightgray;
 }
