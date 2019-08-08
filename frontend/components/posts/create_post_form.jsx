@@ -49,6 +49,7 @@ class CreatePostForm extends React.Component {
 
         this.props.createPost(formData);
         this.setState({ location: '', photoUrl: null, photoFile: null, body: ''})
+        this.props.closeModal();
     };
 
     render() {
@@ -83,8 +84,6 @@ class CreatePostForm extends React.Component {
                             placeholder='Say something cool...'/>
                         <br/>
                     <input className='submit' type="submit" value={this.props.formType} />
-
-                    
                 </form>
             </div>
         );

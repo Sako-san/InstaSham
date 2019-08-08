@@ -1,29 +1,28 @@
 import React from 'react';
-import CreatePost from '../posts/create_post_form'
-import PostShow from '../posts/post_show';
+import { connect } from 'react-redux';
+import { closeModal } from '../../actions/modal_actions';
+import CreatePostContainer from '../posts/create_post_form_container';
 
 const Modal = ({ closeModal, modal}) => {
-    if (!modal) {
-        return null;
-    };
 
+    console.log('Hi');
+    
+    if(!modal) return null;
+    
     let component;
 
-    switch( modal.type ) {
+    switch( modal.type ){
         case 'createPost':
-            component = <CreatePost/>;
+            component = <CreatePostContainer/>
             break;
-        case 'postShow':
-            component = <PostShow/>;
-            break;
-        default:
-            return null;
+        default: 
+           return null;
     };
 
     return (
         <>
-            <div className='modal-backdrop' onClick={closeModal}>
-                <div className='modal-body' onClick={}>
+            <div className="modal-background" onClick={closeModal}>
+                <div className="modal-child" onClick={e => e.stopPropagation()}>
                     {component}
                 </div>
             </div>
@@ -31,4 +30,16 @@ const Modal = ({ closeModal, modal}) => {
     );
 };
 
-export default Modal;
+const mapStateToProps = (state) => {
+    return {
+        modal: state.ui.modal,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        closeModal: () => dispatch(closeModal())
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

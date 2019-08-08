@@ -28,9 +28,6 @@ const splash = ({ currentUser, logout }) => {
                     </div>
                 </div>
                 <button className="logout-button" onClick={logout}>Logout</button>
-                <div className='post-form'>
-                    <CreatePostContainer />
-                </div>
             </div>
             </section>
         </>

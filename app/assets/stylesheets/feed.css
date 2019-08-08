@@ -130,6 +130,8 @@ main {
  .thumbnail {
     object-fit: cover;
     margin: 0 auto;
+    width: 200px;
+    height: 200px;
  }
 
  textarea {
