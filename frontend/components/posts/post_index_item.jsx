@@ -1,46 +1,82 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { dateUtil } from '../../util/date_post_util';
-import  { fetchUser } from '../../actions/user_actions';
+import { createComment, deleteComment } from '../../actions/comment_actions';
+import { fetchUser } from '../../actions/user_actions';
+import { createLike, deleteLike } from '../../actions/like_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
+import { deletePost } from '../../actions/post_actions';
 import CreateComment from './create_comment';
 import PostCommentIndex from './post_comment_index';
 import UserInfo from '../users/user_info';
-import usersReducer from '../../reducers/users_reducer';
+import Modal from '../modals/modal';
 
-const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, deleteLike}) => { 
 
-    if (!user || !currentUser){
+class PostIndexItem extends React.Component {
+    constructor(props){
+        super(props)
+
+    };  
+
+    componentDidMount() {
+        this.props.fetchUser(this.props.post.authorId);
+    };
+
+
+
+    render(){
+    
+    
+    const { post, postId, currentUser, author} = this.props;
+    const { createComment, deleteComment, createLike, deleteLike, openModal, closeModal, deletePost} = this.props
+
+    console.log(currentUser)
+    
+    if (!post || !author){
         return (
             <div>Loading...</div>
         )
     }
 
-    const deleteButton = (post, currentUser) => {
+    const currentUserPostModal = () => {
+        openModal('currentUserPostModal', postId);
+        <Modal />
+    }
+
+    const postModal = () => {
+        openModal('postModal', postId);
+        <Modal />
+    };
+
+    const modal = () => {
         if (post.authorId === currentUser.id){
-         return (
-             <div className='dots'>
-                 <i className="fas fa-ellipsis-h" onClick={() => deletePost(post.id)}></i>
-             </div>
-         )};
+            currentUserPostModal();
+        } else {
+            postModal();
+        }
     };
 
     const likeButton = (post) => {
-        if (post.like_ids.includes(currentUser.id)) {
-            deleteLike({ 
-                post_id: post.id,
-                like_id: currentUser.id
-            });
+        console.log(currentUser, 'like')
+            if (post.like_ids.includes(currentUser.id)) {
+                deleteLike({
+                    post_id: post.id,
+                    like_id: currentUser.id
+                });
+            };
         };
-    };
 
     const unlikeButton = (post) => {
-        if (!post.like_ids.includes(currentUser.id)) {
-            createLike({
-                post_id: post.id,
-                like_id: currentUser.id
-            });
+        console.log(currentUser, 'unlike')
+            if (!post.like_ids.includes(currentUser.id)) {
+                createLike({
+                    post_id: post.id,
+                    like_id: currentUser.id
+                });
+            };
         };
-    };
+
 
     const liking = (post) => {
         if (post.like_ids.includes(currentUser.id)) {
@@ -60,26 +96,28 @@ const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, delete
             )
         };
     };
-
+    // debugger;
     return (
         <li className="post-card">
             <div className='user-info-card'>
                 <Link to={`/users/${post.authorId}`}>
                     <UserInfo
-                    user={user}/>
+                    user={author}/>
                 </Link>
                
                 <div className='names-card'>
                     <Link className='user-profile-link' to={`/users/${post.authorId}`}>
                         <span>
-                            {user.username}
+                            {author.username}
                         </span>
                     </Link>
                     <span className='location'>
                         {post.location}
                     </span>
                 </div>
-                {deleteButton(post, currentUser)}
+                <div className='dots'>
+                    <i className="fas fa-ellipsis-h" onClick={ () => modal()}></i>
+                </div>
             </div>
             <br />
             <div className="card-img">
@@ -91,7 +129,7 @@ const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, delete
                         {liking(post)}
                     </div>
                     <div className='icon2'>
-                        <Link className='link' to={`/postShow/${post.id}`}><i className="far fa-comment"></i></Link>
+                        <Link className='link' to={`/postShow/${postId}`}><i className="far fa-comment"></i></Link>
                     </div>
                 </div>
                 <div className='right-box'>
@@ -106,7 +144,7 @@ const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, delete
             <br />
             <div className='user-body'>
                 <span className='username-body'>
-                    {user.username}
+                    {author.username}
                 </span>
                 <span className="card-prop">
                     {post.body}
@@ -114,7 +152,7 @@ const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, delete
             </div>
             <br />
             <PostCommentIndex
-                post_id={post.id}
+                post_id={postId}
                 user_id={currentUser.id} 
                 />
             <br />
@@ -124,13 +162,41 @@ const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, delete
             <br />
             <CreateComment
                 key={post.id}
-                post_id={post.id}
+                post_id={postId}
                 user_id={currentUser.id}
             />
             
-        </li>);
-    
-    
+        </li>
+        );  
+    };
 };
 
-export default PostIndexItem;
+const mapStateToProps = (state, ownProps) => {
+
+    const post = state.entities.posts[ownProps.postId];
+
+    return {
+        currentUser: state.session.id,
+        author: state.entities.users[post.authorId],
+        post
+    };
+};
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deletePost: (id) => dispatch(deletePost(id)),
+        fetchUser: (userId) => dispatch(fetchUser(userId)),
+
+        createLike: (like) => dispatch(createLike(like)),
+        deleteLike: (likeId) => dispatch(deleteLike(likeId)),
+
+        createComment: (comment) => dispatch(createComment(comment)),
+        deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+
+        openModal: (type, options) => dispatch(openModal(type, options)),
+        closeModal: () => dispatch(closeModal())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostIndexItem);

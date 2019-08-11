@@ -1,6 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import merge from 'lodash';
 import PostIndexItem from './post_index_item';
 import NavBar from '../nav_bar';
 
@@ -17,17 +15,21 @@ class PostIndex extends React.Component {
 
     render() {
 
+        const { posts, users} = this.props;
+
+        if (!posts || !users) {
+            return (
+                <div>Loading...</div>
+            )
+        }
+        // debugger
         
-        
-        const posts = this.props.posts.map( post => {
+        const postItems = posts.map( post => {
             return ( <PostIndexItem
             key= {post.id}
-            post= {post}
-            currentUser = {this.props.currentUser}
-            user={this.props.users[post.authorId]}
-            deletePost={this.props.deletePost}
-            createLike={this.props.createLike}
-            deleteLike={this.props.deleteLike} 
+            // post= {post}
+            postId= {post.id}
+            // author={post.authorId}
             />)
         });
 
@@ -37,7 +39,7 @@ class PostIndex extends React.Component {
             <NavBar
                 currentUser={this.props.currentUser.id}/>
             <ul className='post-index-ul' >
-                {posts}
+                {postItems}
             </ul>
             </>
         );

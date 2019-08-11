@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { fetchPosts, fetchPost, createPost } from '../../util/post_api_util';
 
 class CreatePostForm extends React.Component {
     constructor(props) {
@@ -54,12 +53,9 @@ class CreatePostForm extends React.Component {
 
     render() {
 
-        
-        const { photoFile, photoUrl } = this.state;
-
         const thumbnail = this.state.photoUrl ?
          <img height="200px" width="200px" src={this.state.photoUrl} /> 
-         : null;
+         : <span>Preview Image</span>;
 
         return (
                 <div className='form-box-container'>

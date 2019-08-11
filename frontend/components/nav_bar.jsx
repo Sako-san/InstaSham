@@ -27,7 +27,7 @@ class NavBar extends React.Component {
             <nav className="nav">
                 <div className='insta-cam' >
                     <Link className='nav-bar-cam' to='' ><i className="fab fa-instagram"></i></Link>
-                    <Link className='nav-bar-sham' to=''><span> Instasham</span></Link>
+                    <Link className='nav-bar-sham' to=''><span>Instasham</span></Link>
                 </div>
                 <div>
                     <i id='createPost' className="fas fa-camera" onClick={this.createPost}></i>

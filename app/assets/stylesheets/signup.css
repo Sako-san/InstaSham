@@ -121,7 +121,8 @@
 
 
  .submit-signup {
-     display: inherit;
+     /* display: inherit; */
+    
      background: rgba(49, 126, 236, 0.8);
      color: white;
      width: 265px;
