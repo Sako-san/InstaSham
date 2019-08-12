@@ -1,14 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
+import { deletePost, fetchPosts } from '../../actions/post_actions';
 import CreatePostContainer from '../posts/create_post_form_container';
 import { Link } from 'react-router-dom';
 
 
-const Modal = (props) => {
-    const {closeModal, modal, post_id} = props;
+class Modal extends React.Component {
+
+    constructor(props){
+        super(props);
+
+    }
+
+    componentDidUpdate(){
+        this.props.fetchPosts();
+    }
+    
+    render(){
+
+    const {closeModal, modal } = this.props;
     if(!modal) return null;
     
+    let postId = modal.options
+
     let component;
 
     switch( modal.type ){
@@ -21,15 +36,15 @@ const Modal = (props) => {
         case 'postModal':
             component = 
                 <div className='post-options' onClick={e => e.stopPropagation()}>
-                <Link className='options-link' onClick={closeModal} to={`/postShow/${modal.options}`}>Go To Post</Link>
+                <Link className='options-link' onClick={closeModal} to={`/postShow/${postId}`}>Go To Post</Link>
                     <label className='options' onClick={closeModal}>Cancel</label>
                 </div>
             break;
         case 'currentUserPostModal':
             component = 
                 <div className='post-options' onClick={e => e.stopPropagation()}>
-                    <label className='options'>Delete Post</label>
-                <Link className='options-link' onClick={closeModal} to={`/postShow/${modal.options}`}>Go To Post</Link>
+                    <label className='options' onClick={deletePost(postId)}>Delete Post</label>
+                <Link className='options-link' onClick={closeModal} to={`/postShow/${postId}`}>Go To Post</Link>
                     <label className='options' onClick={closeModal}>Cancel</label>
                 </div>
             break;
@@ -44,6 +59,7 @@ const Modal = (props) => {
             </div>
         </>
     );
+    };
 };
 
 const mapStateToProps = (state) => {
@@ -54,7 +70,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+
+        fetchPosts: () => dispatch(fetchPosts()),
+
+        deletePost: (postId) => dispatch(deletePost(postId)),
     };
 };
 

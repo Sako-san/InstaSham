@@ -1,43 +1,22 @@
 import React from 'react';
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { dateUtil } from '../../util/date_post_util';
-import { createComment, deleteComment } from '../../actions/comment_actions';
-import { fetchUser } from '../../actions/user_actions';
-import { createLike, deleteLike } from '../../actions/like_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
-import { deletePost } from '../../actions/post_actions';
 import CreateComment from './create_comment';
 import PostCommentIndex from './post_comment_index';
 import UserInfo from '../users/user_info';
-import Modal from '../modals/modal';
+import Modal from '../modals/modal';;
 
+const PostIndexItem = ({ openModal, currentUser, post, deletePost, users, createLike, deleteLike, author, postId }) => {
 
-class PostIndexItem extends React.Component {
-    constructor(props){
-        super(props)
+   
 
-    };  
-
-    componentDidMount() {
-        this.props.fetchUser(this.props.post.authorId);
-    };
-
-
-
-    render(){
-    
-    
-    const { post, postId, currentUser, author} = this.props;
-    const { createComment, deleteComment, createLike, deleteLike, openModal, closeModal, deletePost} = this.props
-
-    console.log(currentUser)
-    
-    if (!post || !author){
+    if ( !author || !post || !currentUser) {
         return (
             <div>Loading...</div>
         )
     }
+
 
     const currentUserPostModal = () => {
         openModal('currentUserPostModal', postId);
@@ -50,36 +29,43 @@ class PostIndexItem extends React.Component {
     };
 
     const modal = () => {
-        if (post.authorId === currentUser.id){
+        if (post.authorId === currentUser) {
             currentUserPostModal();
         } else {
             postModal();
         }
     };
 
-    const likeButton = (post) => {
-        console.log(currentUser, 'like')
-            if (post.like_ids.includes(currentUser.id)) {
-                deleteLike({
-                    post_id: post.id,
-                    like_id: currentUser.id
-                });
-            };
+    const deleteButton = (post, currentUser) => {
+        if (post.authorId === currentUser) {
+            return (
+                <div className='dots'>
+                    <i className="fas fa-ellipsis-h" onClick={() => deletePost(post.id)}></i>
+                </div>
+            )
         };
+    };
+
+    const likeButton = (post) => {
+        if (post.like_ids.includes(currentUser)) {
+            deleteLike({
+                post_id: post.id,
+                like_id: currentUser
+            });
+        };
+    };
 
     const unlikeButton = (post) => {
-        console.log(currentUser, 'unlike')
-            if (!post.like_ids.includes(currentUser.id)) {
-                createLike({
-                    post_id: post.id,
-                    like_id: currentUser.id
-                });
-            };
+        if (!post.like_ids.includes(currentUser)) {
+            createLike({
+                post_id: post.id,
+                like_id: currentUser
+            });
         };
-
+    };
 
     const liking = (post) => {
-        if (post.like_ids.includes(currentUser.id)) {
+        if (post.like_ids.includes(currentUser)) {
             return (<i id='like-post' className="fas fa-heart" onClick={() => likeButton(post)}></i>)
         } else {
             return (<i className="far fa-heart" onClick={() => unlikeButton(post)}></i>)
@@ -89,22 +75,23 @@ class PostIndexItem extends React.Component {
     const likeCount = (post) => {
         if (post.like_ids.length > 0) {
             return (
-            <>
-                <span className='like-count'>{post.like_ids.length}</span>
-                <span className='like'>likes</span>
-            </>
+                <>
+                    <span className='like-count'>{post.like_ids.length}</span>
+                    <span className='like'>likes</span>
+                </>
             )
         };
     };
-    // debugger;
+
+    
     return (
         <li className="post-card">
             <div className='user-info-card'>
                 <Link to={`/users/${post.authorId}`}>
                     <UserInfo
-                    user={author}/>
+                        user={author} />
                 </Link>
-               
+
                 <div className='names-card'>
                     <Link className='user-profile-link' to={`/users/${post.authorId}`}>
                         <span>
@@ -116,7 +103,7 @@ class PostIndexItem extends React.Component {
                     </span>
                 </div>
                 <div className='dots'>
-                    <i className="fas fa-ellipsis-h" onClick={ () => modal()}></i>
+                    <i className="fas fa-ellipsis-h" onClick={() => modal()}></i>
                 </div>
             </div>
             <br />
@@ -129,7 +116,7 @@ class PostIndexItem extends React.Component {
                         {liking(post)}
                     </div>
                     <div className='icon2'>
-                        <Link className='link' to={`/postShow/${postId}`}><i className="far fa-comment"></i></Link>
+                        <Link className='link' to={`/postShow/${post.id}`}><i className="far fa-comment"></i></Link>
                     </div>
                 </div>
                 <div className='right-box'>
@@ -152,9 +139,9 @@ class PostIndexItem extends React.Component {
             </div>
             <br />
             <PostCommentIndex
-                post_id={postId}
-                user_id={currentUser.id} 
-                />
+                post_id={post.id}
+                user_id={currentUser}
+            />
             <br />
             <span className="card-prop-timestamp">
                 {dateUtil(post.created_at)}
@@ -162,41 +149,14 @@ class PostIndexItem extends React.Component {
             <br />
             <CreateComment
                 key={post.id}
-                post_id={postId}
-                user_id={currentUser.id}
+                post_id={post.id}
+                user_id={currentUser}
             />
-            
-        </li>
-        );  
-    };
+
+        </li>);
+
+
 };
-
-const mapStateToProps = (state, ownProps) => {
-
-    const post = state.entities.posts[ownProps.postId];
-
-    return {
-        currentUser: state.session.id,
-        author: state.entities.users[post.authorId],
-        post
-    };
-};
+export default PostIndexItem;
 
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        deletePost: (id) => dispatch(deletePost(id)),
-        fetchUser: (userId) => dispatch(fetchUser(userId)),
-
-        createLike: (like) => dispatch(createLike(like)),
-        deleteLike: (likeId) => dispatch(deleteLike(likeId)),
-
-        createComment: (comment) => dispatch(createComment(comment)),
-        deleteComment: (commentId) => dispatch(deleteComment(commentId)),
-
-        openModal: (type, options) => dispatch(openModal(type, options)),
-        closeModal: () => dispatch(closeModal())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostIndexItem);

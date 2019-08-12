@@ -26,8 +26,9 @@ export const updatePost = (post) => dispatch => {
 
 export const deletePost = (postId) => dispatch => {
     return postApiUtil.deletePost(postId)
-        .then(post => dispatch(removePost(postId)))
+        .then( () => dispatch(removePost(postId)))
 };
+
 
 export const receiveAllPosts = (posts) => ({
     type: RECEIVE_ALL_POSTS,
