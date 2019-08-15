@@ -78,10 +78,10 @@ class LoginSessionForm extends React.Component {
                         />
                     </label>
                     <br/>
-                    <button disabled={!isEnabled} className="login-submit" type="submit" >{this.props.formType}</button>
+                    <button disabled={!isEnabled} className="login-submit" type="submit" >{this.props.formType} </button>
                 </form>
                 <div className='errors'> {this.renderErrors()} </div>
-
+                <br/>
                 <div className='demo-user'>
                 <button className='demo-login' onClick={this.demoUser}>Log in with Demo</button>
                 </div>

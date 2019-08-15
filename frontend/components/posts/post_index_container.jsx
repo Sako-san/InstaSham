@@ -3,6 +3,7 @@ import {fetchAllUsers} from '../../actions/user_actions';
 import { fetchPosts, deletePost } from '../../actions/post_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
 import { logout } from '../../actions/session_actions';
+import { openModal } from '../../actions/modal_actions';
 import PostIndex from './post_index';
 
 const mapStateToProps = (state) => ({
@@ -12,6 +13,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    openModal: (type, options) => dispatch(openModal(type, options)),
+    
     fetchAllUsers: () => dispatch(fetchAllUsers()),
 
     fetchPosts: () => dispatch(fetchPosts()),

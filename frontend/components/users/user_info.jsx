@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { fetchUser } from '../../actions/user_actions';
 
 const UserInfo = ({ user }) => {
-
+    // debugger
     return(
         <img height='45px' width='45px' className='prof-pic' src={user.photoUrl} />
     );
@@ -14,7 +14,6 @@ const UserInfo = ({ user }) => {
 const mapStateToProps = ( state ) => {
     return {
     currentUser: state.entities.users[state.session.id],
-    users: Object.values(state.entities.users)
     }
 }
 

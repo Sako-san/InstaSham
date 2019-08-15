@@ -5,6 +5,7 @@ import { dateUtil } from '../../util/date_post_util';
 import { fetchAllUsers } from '../../actions/user_actions';
 import { fetchPost,  deletePost } from '../../actions/post_actions';
 import { createLike, deleteLike } from '../../actions/like_actions';
+import { closeModal } from '../../actions/modal_actions';
 import { createComment, fetchComments, deleteComment } from '../../actions/comment_actions';
 import CreateCommentContainer from './create_comment';
 import PostCommentIndex from './post_comment_index';
@@ -56,7 +57,7 @@ class PostShow extends React.Component {
     };
 
     render() {
-        const {post, comments, currentUser, users} = this.props;
+        const {post, comments, currentUser, users, closeModal} = this.props;
 
         if(!post || !users) {
             return <div>Loading...</div>
@@ -155,6 +156,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+    closeModal: () => dispatch(closeModal()),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
     fetchPost: (id) => dispatch(fetchPost(id)),
     deletePost: (id) => dispatch(deletePost(id)),

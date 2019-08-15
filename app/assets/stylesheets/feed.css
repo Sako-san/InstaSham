@@ -128,8 +128,16 @@ main {
  }
 
  .thumbnail {
+    display: flex;
     object-fit: cover;
     margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border: 2px solid;
+    border-radius: 3px;
+    background: lightgray;
+    justify-content: center;
+    align-items: center;
  }
 
  textarea {

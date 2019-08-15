@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { fetchPosts, fetchPost, createPost } from '../../util/post_api_util';
 
 class CreatePostForm extends React.Component {
     constructor(props) {
@@ -49,16 +48,14 @@ class CreatePostForm extends React.Component {
 
         this.props.createPost(formData);
         this.setState({ location: '', photoUrl: null, photoFile: null, body: ''})
+        this.props.closeModal();
     };
 
     render() {
 
-        
-        const { photoFile, photoUrl } = this.state;
-
         const thumbnail = this.state.photoUrl ?
          <img height="200px" width="200px" src={this.state.photoUrl} /> 
-         : null;
+         : <span>Preview Image</span>;
 
         return (
                 <div className='form-box-container'>
@@ -83,8 +80,6 @@ class CreatePostForm extends React.Component {
                             placeholder='Say something cool...'/>
                         <br/>
                     <input className='submit' type="submit" value={this.props.formType} />
-
-                    
                 </form>
             </div>
         );

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import UserProfileItem from './user_profile_item';
 import NavBar from '../nav_bar';
 
+
 class ProfilePage extends React.Component {
     constructor(props) {
         super(props);

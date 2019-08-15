@@ -1,19 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { dateUtil } from '../../util/date_post_util';
-import  { fetchUser } from '../../actions/user_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 import CreateComment from './create_comment';
 import PostCommentIndex from './post_comment_index';
 import UserInfo from '../users/user_info';
-import usersReducer from '../../reducers/users_reducer';
+import Modal from '../modals/modal';;
 
-const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, deleteLike}) => { 
+const PostIndexItem = ({ openModal, currentUser, post, deletePost, users, createLike, deleteLike, author, postId }) => {
 
-    if (!user || !currentUser){
+   
+
+    if ( !author || !post || !currentUser) {
         return (
             <div>Loading...</div>
         )
     }
+
+
+    const currentUserPostModal = () => {
+        openModal('currentUserPostModal', postId);
+        <Modal />
+    }
+
+    const postModal = () => {
+        openModal('postModal', postId);
+        <Modal />
+    };
+
+    const modal = () => {
+        if (post.authorId === currentUser) {
+            currentUserPostModal();
+        } else {
+            postModal();
+        }
+    };
 
     const deleteButton = (post, currentUser) => {
         if (post.authorId === currentUser.id){
@@ -25,25 +46,25 @@ const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, delete
     };
 
     const likeButton = (post) => {
-        if (post.like_ids.includes(currentUser.id)) {
-            deleteLike({ 
+        if (post.like_ids.includes(currentUser)) {
+            deleteLike({
                 post_id: post.id,
-                like_id: currentUser.id
+                like_id: currentUser
             });
         };
     };
 
     const unlikeButton = (post) => {
-        if (!post.like_ids.includes(currentUser.id)) {
+        if (!post.like_ids.includes(currentUser)) {
             createLike({
                 post_id: post.id,
-                like_id: currentUser.id
+                like_id: currentUser
             });
         };
     };
 
     const liking = (post) => {
-        if (post.like_ids.includes(currentUser.id)) {
+        if (post.like_ids.includes(currentUser)) {
             return (<i id='like-post' className="fas fa-heart" onClick={() => likeButton(post)}></i>)
         } else {
             return (<i className="far fa-heart" onClick={() => unlikeButton(post)}></i>)
@@ -53,33 +74,36 @@ const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, delete
     const likeCount = (post) => {
         if (post.like_ids.length > 0) {
             return (
-            <>
-                <span className='like-count'>{post.like_ids.length}</span>
-                <span className='like'>likes</span>
-            </>
+                <>
+                    <span className='like-count'>{post.like_ids.length}</span>
+                    <span className='like'>likes</span>
+                </>
             )
         };
     };
 
+    
     return (
         <li className="post-card">
             <div className='user-info-card'>
                 <Link to={`/users/${post.authorId}`}>
                     <UserInfo
-                    user={user}/>
+                        user={author} />
                 </Link>
-               
+
                 <div className='names-card'>
                     <Link className='user-profile-link' to={`/users/${post.authorId}`}>
                         <span>
-                            {user.username}
+                            {author.username}
                         </span>
                     </Link>
                     <span className='location'>
                         {post.location}
                     </span>
                 </div>
-                {deleteButton(post, currentUser)}
+                <div className='dots'>
+                    <i className="fas fa-ellipsis-h" onClick={() => modal()}></i>
+                </div>
             </div>
             <br />
             <div className="card-img">
@@ -106,7 +130,7 @@ const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, delete
             <br />
             <div className='user-body'>
                 <span className='username-body'>
-                    {user.username}
+                    {author.username}
                 </span>
                 <span className="card-prop">
                     {post.body}
@@ -115,8 +139,8 @@ const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, delete
             <br />
             <PostCommentIndex
                 post_id={post.id}
-                user_id={currentUser.id} 
-                />
+                user_id={currentUser}
+            />
             <br />
             <span className="card-prop-timestamp">
                 {dateUtil(post.created_at)}
@@ -125,12 +149,13 @@ const PostIndexItem = ({ currentUser, post, deletePost, user, createLike, delete
             <CreateComment
                 key={post.id}
                 post_id={post.id}
-                user_id={currentUser.id}
+                user_id={currentUser}
             />
-            
-        </li>);
-    
-    
-};
 
+        </li>);
+
+
+};
 export default PostIndexItem;
+
+
