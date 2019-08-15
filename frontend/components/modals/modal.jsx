@@ -11,11 +11,22 @@ class Modal extends React.Component {
     constructor(props){
         super(props);
 
+        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
     componentDidUpdate(){
         this.props.fetchPosts();
     }
+
+    handleSubmit(e) {
+        e.preventDefault();
+
+        const { modal } = this.props;
+
+        this.props.deletePost(modal.options);
+        this.props.closeModal();
+    };
     
     render(){
 
@@ -43,7 +54,7 @@ class Modal extends React.Component {
         case 'currentUserPostModal':
             component = 
                 <div className='post-options' onClick={e => e.stopPropagation()}>
-                    <label className='options' onClick={deletePost(postId)}>Delete Post</label>
+                    <label className='options' onClick={ e => this.handleSubmit(e)}>Delete Post</label>
                 <Link className='options-link' onClick={closeModal} to={`/postShow/${postId}`}>Go To Post</Link>
                     <label className='options' onClick={closeModal}>Cancel</label>
                 </div>
