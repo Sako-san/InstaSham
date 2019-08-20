@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import { deletePost, fetchPosts } from '../../actions/post_actions';
 import CreatePostContainer from '../posts/create_post_form_container';
+import PostShow from '../posts/post_show';
 import { Link } from 'react-router-dom';
 
 
@@ -59,6 +60,12 @@ class Modal extends React.Component {
                     <label className='options' onClick={closeModal}>Cancel</label>
                 </div>
             break;
+        case 'profileShowModal':
+            component = 
+                <div className='postShowModal' onClick={e => e.stopPropagation()}>
+                    <PostShow/>
+                </div>
+                break;
         default: 
            return null;
     };

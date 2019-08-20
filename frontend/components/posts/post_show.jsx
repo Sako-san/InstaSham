@@ -15,6 +15,7 @@ class PostShow extends React.Component {
     constructor(props){
         super(props)
 
+
         this.likeButton = this.likeButton.bind(this);
         this.unlikeButton = this.unlikeButton.bind(this);
     }
@@ -55,6 +56,7 @@ class PostShow extends React.Component {
             });
         };
     };
+
 
     render() {
         const {post, comments, currentUser, users, closeModal} = this.props;

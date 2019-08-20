@@ -8,9 +8,10 @@ class CreateComment extends React.Component {
 
         this.state = this.props.comment;
 
+     
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    };
 
     
     update(field) {
@@ -33,6 +34,7 @@ class CreateComment extends React.Component {
     };
 
     render() {
+
         return (
             <>
                 <form className='comment-box' onSubmit={this.handleSubmit}>
@@ -40,6 +42,7 @@ class CreateComment extends React.Component {
                     className='create-comment'
                     id='create-comment'
                     type="text" 
+                    autoFocus
                     value={this.state.comment_body}
                     onChange={this.update('comment_body')}
                     placeholder='Add a comment...'/>

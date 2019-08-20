@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UserProfileItem from './user_profile_item';
 import NavBar from '../nav_bar';
+import { openModal } from '../../actions/modal_actions';
 
 
 class ProfilePage extends React.Component {
@@ -70,7 +71,8 @@ class ProfilePage extends React.Component {
             currentUser,
             posts,
             user,
-            comments
+            comments,
+            openModal
         } = this.props;
 
         if (!posts || !user) {
@@ -84,6 +86,7 @@ class ProfilePage extends React.Component {
                     post= {post}
                     user= {user}
                     comments= {comments}
+                    openModal= {openModal}
                 />)
             };
         });

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Modal from '../modals/modal';
 
 class UserProfileItem extends React.Component {
     constructor(props) {
@@ -11,13 +12,14 @@ class UserProfileItem extends React.Component {
 
     const { post, comments, users, openModal} = this.props;
 
+
     const likeCount = post.like_ids.length;
     const commentCount = comments.filter(comment => comment.post_id === post.id).length;
 
     return (
         <li >
             <div className='post-element'>
-                <img className='profile-posts' src={post.photoUrl} alt=""  />
+                <img className='profile-posts' src={post.photoUrl} alt="" />
                 <div className='div-box'>
                 
                     <div className='hover-like-button'>
