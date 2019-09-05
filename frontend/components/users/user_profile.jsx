@@ -87,11 +87,7 @@ class ProfilePage extends React.Component {
             return (
                 <div className='profile-interaction-block'>
                     <span className='username'>{user.username}</span>
-<<<<<<< HEAD
-                    {/* <button className='settings'>Follow/Unfollow</button> */}
-=======
                     <button className='settings' onClick={ e => this.follow(e) }>Follow</button>
->>>>>>> comments
                 </div>
             );
         };
