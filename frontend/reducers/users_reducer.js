@@ -5,6 +5,8 @@ import { RECEIVE_FOLLOW, REMOVE_FOLLOW } from '../actions/follow_actions';
 import merge from 'lodash/merge';
 
 const usersReducer = (oldState = {}, action) => {
+    let newState;
+
     Object.freeze(oldState);
 
     switch(action.type) {

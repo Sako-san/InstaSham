@@ -9,7 +9,7 @@ import Modal from '../modals/modal';;
 
 const PostIndexItem = ({ openModal, currentUser, post, deletePost, users, createLike, deleteLike, author, postId }) => {
 
-   
+   const authorId = post.authorId
 
     if ( !author || !post || !currentUser) {
         return (
@@ -24,7 +24,7 @@ const PostIndexItem = ({ openModal, currentUser, post, deletePost, users, create
     }
 
     const postModal = () => {
-        openModal('postModal', postId);
+        openModal('postModal', {postId, authorId});
         <Modal />
     };
 
@@ -34,16 +34,6 @@ const PostIndexItem = ({ openModal, currentUser, post, deletePost, users, create
         } else {
             postModal();
         }
-    };
-
-    const deleteButton = (post, currentUser) => {
-        if (post.authorId === currentUser) {
-            return (
-                <div className='dots'>
-                    <i className="fas fa-ellipsis-h" onClick={() => deletePost(post.id)}></i>
-                </div>
-            )
-        };
     };
 
     const likeButton = (post) => {
