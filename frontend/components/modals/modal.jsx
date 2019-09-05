@@ -15,8 +15,8 @@ class Modal extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.follow = this.follow.bind(this);
-        this.unFollow = this.unFollow.bind(this);
-        
+        this.unfollow = this.unfollow.bind(this);
+        this.follow_unfollow = this.follow_unfollow.bind(this);
     }
 
     componentDidUpdate(){
@@ -41,34 +41,43 @@ class Modal extends React.Component {
             following_id: modal.options.authorId,
             follower_id: currentUser.id
         });
-        
+        this.props.closeModal();
     };
 
-    unFollow(e) {
-        const { modal, currentUser, deleteFollow} = this.props;
+    unfollow(e) {
+        e.preventDefault();
+        
+        const { modal, currentUser, deleteFollow } = this.props;
 
         deleteFollow({
             following_id: modal.options.authorId,
             follower_id: currentUser.id
         });
+        this.props.closeModal();
+    };
+
+    follow_unfollow( currentUser, author ) {
+        
+        if ( currentUser.followingIds.includes(author)){
+           return ( <label className='options' onClick={e => this.unfollow(e) }>Unfollow</label> )
+        } else {
+           return ( <label className='options' onClick={e => this.follow(e)}>follow</label> );
+        }
     };
     
     render(){
 
-    const {closeModal, modal } = this.props;
+    const { closeModal, modal } = this.props;
     if(!modal) return null;
 
-    // let userFollow;
+    let postId;
+    let authorId;
 
-    // if(modal && this.props.currentUser){
-    //     if( this.props.currentUser.followingIds.includes(modal.options.authorId)){
-    //         userFollow = <label className='options' onClick={e => this.unFollow(e)}>Unfollow</label>
-    //     } else {
-    //         userFollow = <label className='options' onClick={e => this.follow(e)}>Follow</label> 
-    //     };
-    // };
+    if( modal.options ){
+        postId = modal.options.postId;
+        authorId = modal.options.authorId;
+    }
     
-    let postId = modal.options
 
     let component;
 
@@ -82,7 +91,7 @@ class Modal extends React.Component {
         case 'postModal':
             component = 
                 <div className='post-options' onClick={e => e.stopPropagation()}>
-                    {userFollow}
+                {this.follow_unfollow(this.props.currentUser, authorId)}
                 <Link className='options-link' onClick={closeModal} to={`/postShow/${postId}`}>Go To Post</Link>
                     <label className='options' onClick={closeModal}>Cancel</label>
                 </div>

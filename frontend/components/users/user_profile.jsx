@@ -9,7 +9,6 @@ class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
 
-        console.log(props)
         this.postCount = this.postCount.bind(this);
         this.userDash = this.userDash.bind(this);
         this.follow = this.follow.bind(this);
