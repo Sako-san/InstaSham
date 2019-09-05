@@ -9,8 +9,12 @@ class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
 
+        console.log(props)
         this.postCount = this.postCount.bind(this);
         this.userDash = this.userDash.bind(this);
+        this.follow = this.follow.bind(this);
+        this.unfollow = this.unfollow.bind(this);
+
     };
 
     componentDidMount() {
@@ -42,9 +46,27 @@ class ProfilePage extends React.Component {
 
     };
 
+    follow(e) {
+        const { createFollow, user, currentUser } = this.props;
+        
+        createFollow({
+            following_id: user.id,
+            follower_id: currentUser.id
+        });
+    };
+
+    unfollow(e) {
+        const { deleteFollow, user, currentUser} = this.props;
+
+        deleteFollow({
+            following_id: user.id,
+            follower_id: currentUser.id
+        });
+    };
+
     postCount( posts, user) {
        return posts.filter( post => post.authorId === user.id).length
-    }
+    };
 
     userDash(currentUser, user) {
         if (currentUser.id === user.id) {
@@ -55,11 +77,18 @@ class ProfilePage extends React.Component {
                     <button className='settings'>Logout</button>
                 </div>
             );
+        } else if ( user.followerIds.includes(currentUser.id) ) {
+            return (
+                <div className='profile-interaction-block'>
+                    <span className='username'>{user.username}</span>
+                    <button className='settings' onClick={ e => this.unfollow(e) }>Unfollow</button>
+                </div>
+            );
         } else {
             return (
                 <div className='profile-interaction-block'>
                     <span className='username'>{user.username}</span>
-                    <button className='settings'>Follow/Unfollow</button>
+                    <button className='settings' onClick={ e => this.follow(e) }>Follow</button>
                 </div>
             );
         };
@@ -90,7 +119,8 @@ class ProfilePage extends React.Component {
                 />)
             };
         });
-
+        
+        
         return(
         <>
         <NavBar
@@ -99,7 +129,7 @@ class ProfilePage extends React.Component {
         <main className='main-prof'>
         <section className='user-info-section'>
         <div className='user-profpic'>
-            <img src={user.photoUrl} alt=""/>
+            <img src={user.photoUrl} alt="user profile picture"/>
         </div>
         <div className='user-profile-block'>
             <div>{this.userDash(currentUser, user)}</div>
@@ -108,9 +138,15 @@ class ProfilePage extends React.Component {
                     <span className='post-count'>{this.postCount(posts, user)}</span>
                     <span> posts </span>
                 </div>
+                <div>
+                    <span className='follower-count'>{user.followerIds.length}</span>
+                    <span> followers </span>
+                </div>
+                <div>
+                    <span className='following-count'>{user.followingIds.length}</span>
+                    <span> following </span>
+                </div>
                 
-                <span> followers </span>
-                <span> following </span>
             </div>
             <div className='bio-block'>
                 <span className='user-name'>{user.name}</span>
